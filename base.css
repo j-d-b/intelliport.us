@@ -1,0 +1,23 @@
+.text-purple {
+  color: #623FD6; }
+
+.nav-active {
+  color: #623FD6;
+  font-weight: 600; }
+
+.bg-purple {
+  background-color: #623FD6; }
+
+.border-purple {
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: #623FD6; }
+
+.text-gray {
+  color: #7f7f7f; }
+
+nav a:visited, nav a:hover, nav a:link {
+  text-decoration: none;
+  color: inherit; }
+
+/*# sourceMappingURL=base.css.map */

@@ -1,0 +1,32 @@
+$iport-gray: #7f7f7f;
+$iport-purple: #623FD6;
+
+.text-purple {
+  color: $iport-purple;
+}
+
+.nav-active {
+  color: $iport-purple;
+  font-weight: 600;
+}
+
+.bg-purple {
+  background-color: $iport-purple;
+}
+
+.border-purple {
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: $iport-purple;
+}
+
+.text-gray {
+  color: $iport-gray;
+}
+
+nav {
+  a:visited, a:hover, a:link {
+    text-decoration: none;
+    color: inherit;
+  }
+}
