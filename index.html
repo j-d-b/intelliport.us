@@ -8,7 +8,12 @@
 		<meta name="description" content="IntelliPort, Inc. seeks to leverage the power of technology and analytics to boost productivity by enabling systems in the container terminal industry to operate at greater levels of efficiency."></meta>
 
 		<!-- favicons -->
-
+		<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+		<link rel="manifest" href="favicons/manifest.json">
+		<link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="theme-color" content="#ffffff">
 
 		<!-- bootstrap 4 beta -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -24,34 +29,101 @@
 
 	<body>
 		<div class="container">
-			<div class="row justify-content-center">
+			<h1 class="text-hide">IntelliPort, Inc.</h1> <!-- for search engines -->
 
-				<nav class="navbar border-purple text-gray rounded mt-5">
-					<a class="navbar-brand" href="index.html">
-						<img src="../intelliport_logo.png" class="img-fluid" alt="IPort">
+			<div class="row justify-content-center">
+				<nav class="navbar justify-content-center border-purple text-gray text-roboto bg-white rounded-2 m-3 mt-sm-5 unselectable d-print">
+					<a class="navbar-brand pr-sm-2" href="index.html">
+						<img src="iport_logo_old_small.png" alt="IPort">
 					</a>
 					<div class="navbar-nav mx-auto">
-						<div class="d-flex flex-nowrap mt-2 mt-sm-0">
-							<a class="nav-item nav-link p-2" href="index.html">
-								<span class="nav-title nav-active">Home</span>
-							</a>
-							<a class="nav-item nav-link p-2" href="projects.html">
-								<span class="nav-title">Projects</span>
-							</a>
-							<a class="nav-item nav-link p-2" href="contact.html">
-								<span class="nav-title">Contact</span>
-							</a>
+						<div class="d-flex flex-nowrap">
+							<a class="nav-item nav-link p-2" href="#home">Home</a>
+							<a class="nav-item nav-link p-2" href="#projects">Projects</a>
+							<a class="nav-item nav-link p-2" href="#contact">Contact</a>
 						</div>
 					</div>
 				</nav>
+			</div>
+
+			<div class="row m-1 mt-2 mt-sm-4">
+				<div class="col border-left-purple text-roboto" id="content"></div>
+			</div>
+
+		</div>
+
+		<!-- content options -->
+		<!-- NOTE appened '-content' instead of linking with href hash from nav to
+		avoid scrolled view when switching content sections -->
+		<div class="d-none" id="home-content">
+			<h2>About Us</h2>
+			<p><span class="font-weight-medium">IntelliPort, Inc.</span> is a software development company that uses technology and analytics to boost productivity by optimizing system efficiency.</p>
+			<p>IPort focuses on <span class="font-weight-medium">intelligent optimization in the container terminal industry</span>. Current terminal yard operations leave ample room for innovation, especially in terms of yield improvement—that is, maximizing the profitability of existing investments in terminal infrastructure.</p>
+			<p>IPort produces <span class="font-weight-medium">smart modules</span> which can be integrated with a Terminal Operating System (TOS) to increase efficiency and profitability. We have partnered with leading academic institutions to develop algorithms for our decision modules and have valuable industry knowledge from real-world experience with port operations.</p>
+		</div>
+
+		<div class="d-none" id="projects-content">
+			<h2>Projects</h2>
+			<p>In pursuit of creating innovative, market-leading products, IPort has performed research and development in three main areas:</p>
+
+			<div class="list-group ">
+			  <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#dsm" role="button" aria-expanded="false" aria-controls="dsm">Dynamic human resource allocation based on demand</a>
+				<div class="card border-top-0 border-bottom-0 rounded-0">
+					<div class="collapse" id="dsm">
+						<div class="card-body">
+							<h5 class="card-title">DSM</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Dynamic Scheduling Module</h6>
+						</div>
+					</div>
+				</div>
+
+				<a class="list-group-item list-group-item-action" data-toggle="collapse" href="#crpm" role="button" aria-expanded="false" aria-controls="crpm">Minimizing unproductive container moves</a>
+				<div class="card border-top-0 border-bottom-0 rounded-0">
+					<div class="collapse" id="crpm">
+						<div class="card-body">
+							<h5 class="card-title">CRPM</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Container Relocation Problem Module</h6>
+						</div>
+					</div>
+				</div>
+
+				<a class="list-group-item list-group-item-action rounded-bottom" data-toggle="collapse" href="#prtg" role="button" aria-expanded="false" aria-controls="prtg">Predicting container retrieval date/time</a>
+				<div class="card border-top-0 border-bottom-0">
+					<div class="collapse" id="prtg">
+						<div class="card-body">
+							<h5 class="card-title">PRTG</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Predicted Retrieval Time Generator</h6>
+						</div>
+					</div>
+				</div>
 
 			</div>
+		</div>
+
+
+		<div class="d-none" id="contact-content">
+			<h2>Contact Us</h2>
+			<p>IntelliPort is a new company. if you have an inquiries of any sort, shoot use a message</p>
+			<form>
+			  <div class="form-group">
+			    <label for="email-input">Email address</label>
+			    <input type="email" class="form-control rounded-1" id="email-input" placeholder="Enter email">
+			  </div>
+			  <div class="form-group">
+			    <label for="message-input">Message</label>
+			    <textarea class="form-control rounded-1" id="message-input" rows="4" placeholder="Thoughts, proposals, requests..."></textarea>
+			  </div>
+				<button type="submit" class="btn btn-submit rounded-1 mb-2">Submit</button>
+			</form>
 		</div>
 
 		<!-- bootstrap 4 beta -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+		<!-- custom -->
+		<script src="main.js"></script>
 
 	</body>
 </html>

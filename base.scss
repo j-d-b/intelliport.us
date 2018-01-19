@@ -1,21 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700');
+
 $iport-gray: #7f7f7f;
 $iport-purple: #623FD6;
+
+nav {
+  a:visited, a:hover, a:link {
+    text-decoration: none;
+    color: inherit;
+  }
+}
 
 .text-purple {
   color: $iport-purple;
 }
 
-.nav-active {
-  color: $iport-purple;
-  font-weight: 600;
+.navbar-nav {
+  .nav-active {
+    color: $iport-purple;
+    font-weight: 400;
+  }
 }
 
 .bg-purple {
   background-color: $iport-purple;
 }
 
+.border-color-purple {
+  border-color: $iport-purple;
+}
+
 .border-purple {
-  border-width: 0.1rem;
+  border-width: 0.095rem;
+  border-style: solid;
+  border-color: $iport-purple;
+}
+
+.border-top-purple {
+  border-width: 0.095rem 0 0 0;
+  border-style: solid;
+  border-color: $iport-purple;
+}
+
+.border-left-purple {
+  border-width: 0 0 0 0.095rem;
   border-style: solid;
   border-color: $iport-purple;
 }
@@ -24,9 +51,62 @@ $iport-purple: #623FD6;
   color: $iport-gray;
 }
 
-nav {
-  a:visited, a:hover, a:link {
-    text-decoration: none;
-    color: inherit;
+.text-roboto {
+  font-weight: 300;
+  font-family: "Roboto";
+}
+
+.rounded-2 {
+  border-radius: 10px;
+}
+
+.rounded-1 {
+  border-radius: 8px;
+}
+
+.rounded-top-2 {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.font-weight-medium {
+  font-weight: 400;
+}
+
+.collapse {
+  .card-body{
+    border-width: 0 0 0 0;
   }
 }
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.form-control:focus, .btn-submit:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: $iport-purple;
+  }
+
+.btn-submit {
+  color: $iport-gray;
+  background-color: white;
+  border-color: $iport-gray;
+  &:hover {
+    color: $iport-purple;
+    background-color: white;
+    border-color: $iport-purple;
+  }
+}
+
+
+// #dsm {
+//   border-right: 1px solid $iport-gray;
+//   border-left: 1px solid $iport-gray;
+// }
