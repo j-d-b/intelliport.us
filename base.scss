@@ -1,7 +1,18 @@
+// Sass stuff, elements, classes, id (all alphabetical)
+
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700');
 
 $iport-gray: #7f7f7f;
 $iport-purple: #623FD6;
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content;}
+  :-moz-placeholder           {@content;}
+  ::-moz-placeholder          {@content;}
+  :-ms-input-placeholder      {@content;}
+}
+
+@include placeholder {font-weight:300;}
 
 nav {
   a:visited, a:hover, a:link {
@@ -10,23 +21,8 @@ nav {
   }
 }
 
-.text-purple {
-  color: $iport-purple;
-}
-
-.navbar-nav {
-  .nav-active {
-    color: $iport-purple;
-    font-weight: 400;
-  }
-}
-
 .bg-purple {
   background-color: $iport-purple;
-}
-
-.border-color-purple {
-  border-color: $iport-purple;
 }
 
 .border-purple {
@@ -47,21 +43,51 @@ nav {
   border-color: $iport-purple;
 }
 
-.text-gray {
+.btn-submit {
   color: $iport-gray;
-}
-
-.text-roboto {
   font-weight: 300;
-  font-family: "Roboto";
+  background-color: white;
+  border-color: $iport-gray; //#CED4DA; <-- bs gray of textarea and input
+  &:hover {
+    color: $iport-purple;
+    background-color: white;
+    border-color: $iport-purple;
+  }
 }
 
-.rounded-2 {
-  border-radius: 10px;
+.collapse {
+  .card-body{
+    @extend .no-border;
+  }
+}
+
+.font-weight-medium {
+  font-weight: 400;
+}
+
+.form-control:focus, .btn-submit:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: $iport-purple;
+}
+
+.navbar-nav {
+  .nav-active {
+    color: $iport-purple;
+    font-weight: 400;
+  }
+}
+
+.no-border {
+  border-width: 0;
 }
 
 .rounded-1 {
   border-radius: 8px;
+}
+
+.rounded-2 {
+  border-radius: 10px;
 }
 
 .rounded-top-2 {
@@ -69,14 +95,17 @@ nav {
   border-top-left-radius: 10px;
 }
 
-.font-weight-medium {
-  font-weight: 400;
+.text-gray {
+  color: $iport-gray;
 }
 
-.collapse {
-  .card-body{
-    border-width: 0 0 0 0;
-  }
+.text-purple {
+  color: $iport-purple;
+}
+
+.text-roboto {
+  font-weight: 300;
+  font-family: "Roboto";
 }
 
 .unselectable {
@@ -87,26 +116,3 @@ nav {
   -ms-user-select: none;
   user-select: none;
 }
-
-.form-control:focus, .btn-submit:focus {
-    outline: none;
-    box-shadow: none;
-    border-color: $iport-purple;
-  }
-
-.btn-submit {
-  color: $iport-gray;
-  background-color: white;
-  border-color: $iport-gray;
-  &:hover {
-    color: $iport-purple;
-    background-color: white;
-    border-color: $iport-purple;
-  }
-}
-
-
-// #dsm {
-//   border-right: 1px solid $iport-gray;
-//   border-left: 1px solid $iport-gray;
-// }

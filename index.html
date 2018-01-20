@@ -57,13 +57,13 @@
 		<div class="d-none" id="home-content">
 			<h2>About Us</h2>
 			<p><span class="font-weight-medium">IntelliPort, Inc.</span> is a software development company that uses technology and analytics to boost productivity by optimizing system efficiency.</p>
-			<p>IPort focuses on <span class="font-weight-medium">intelligent optimization in the container terminal industry</span>. Current terminal yard operations leave ample room for innovation, especially in terms of yield improvement—that is, maximizing the profitability of existing investments in terminal infrastructure.</p>
-			<p>IPort produces <span class="font-weight-medium">smart modules</span> which can be integrated with a Terminal Operating System (TOS). We have partnered with leading academic institutions to develop algorithms for our decision modules and have valuable industry knowledge from real-world experience with port operations.</p>
+			<p>IntelliPort focuses on <span class="font-weight-medium">intelligent optimization in the container terminal industry</span>. Current terminal yard operations leave ample room for innovation, especially in terms of yield improvement—that is, maximizing the profitability of existing investments in terminal infrastructure.</p>
+			<p>IntelliPort produces <span class="font-weight-medium">smart modules</span> which can be integrated with a Terminal Operating System (TOS). We have partnered with leading academic institutions to develop algorithms for our decision modules and have valuable industry knowledge from real-world experience with port operations.</p>
 		</div>
 
 		<div class="d-none" id="projects-content">
 			<h2>Projects</h2>
-			<p>In pursuit of creating innovative, market-leading products, IPort has performed research and development in three main areas:</p>
+			<p>In pursuit of creating novel products, IntelliPort has directed research and development to three main areas:</p>
 
 			<div class="list-group">
 			  <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#dsm" role="button" aria-expanded="false" aria-controls="dsm">Dynamic human resource allocation based on demand</a>
@@ -71,7 +71,17 @@
 					<div class="collapse" id="dsm">
 						<div class="card-body">
 							<h5 class="card-title">DSM</h5>
-							<h6 class="card-subtitle mb-2 text-muted">Dynamic Scheduling Module</h6>
+							<h6 class="card-subtitle mb-2 text-muted">Dynamic Schedule Module</h6>
+							<p>IntelliPort is developing the dynamic schedule module to <span class="font-weight-medium">automate and optimize creation of staff schedules</span> to minimize cost of human resources.</p>
+							<p>The DSM offers two unique tools:</p>
+							<ul>
+								<li>A simulator</li>
+								<li>A schedule generator</li>
+							</ul>
+							<p>The <span class="font-weight-medium">simulator</span> helps recruitment planners determine hiring needs by generating the number of required new exployees using a rolling basis demand over a selected time interval (e.g. weeks, months, years).</p>
+							<p>The <span class="font-weight-medium">schedule generator</span> builds cost-efficient schedules based on forecasted demand. It remains flexible by allowing schedules to be updated as demand changes.</p>
+							<p>The DSM can integrate with a Terminal Operating System (TOS) to dynamically receive the demand for work. It can also integrate with an Enterprise Resource Planning (ERP) system to provide working hours for each employee, including overtime and on-call hours, and thus allow for immediate payroll generation.</p>
+							<p>Check out the intial <a href="docs/dsm_summary.pdf" target="_blank">summary document</a> for more information.</p>
 						</div>
 					</div>
 				</div>
@@ -82,6 +92,16 @@
 						<div class="card-body">
 							<h5 class="card-title">CRPM</h5>
 							<h6 class="card-subtitle mb-2 text-muted">Container Relocation Problem Module</h6>
+							<p>IntelliPort is beginning development of a smart module that uses expected container retrieval order to maximize yard efficiency by minimizing the number of future relocations that are caused by the placement of blocking or new containers.</p>
+							<p>The CRPM has two functions:</p>
+							<ol class="font-weight-medium">
+								<li><span class="">Determining placement within a block for relocation of a blocking container during retrieval of a requested container</span></li>
+								<li><span class="">Determining placement within a block when stacking a new container</span></li>
+							</ol>
+							<p>At a high level, the CRP software takes in a container ID to retrieve (<span class="font-weight-medium">1</span>) or a block location to stack a new container (<span class="font-weight-medium">2</span>) and <span class="font-weight-medium">outputs the optimized set of moves</span> that should be taken to complete this action.</p>
+							<p>CRPM <span class="font-italic">receives</span> data from a Terminal Operating System (TOS) about containers currently stacked in the yard to determine departure order and <span class="font-italic">sends</span> the list of optimal moves to the TOS as instructions for use by crane operators. The module will continuously refresh its information and update container expected retrieval order in real-time based on changes in the yard.</p>
+							<p>If a terminal has implemented a Prediction System (PS) for container retrieval times or Truck Appointment System (TAS), CRPM will also receive data from these.</p>
+							<p>For a more detailed summary (with a bit of background information), read the brief <a href="docs/crpm_summary.pdf" target="_blank">software summary</a>.</p>
 						</div>
 					</div>
 				</div>
@@ -89,9 +109,11 @@
 				<a class="list-group-item list-group-item-action rounded-bottom" data-toggle="collapse" href="#prtg" role="button" aria-expanded="false" aria-controls="prtg">Predicting container retrieval date/time</a>
 				<div class="card border-top-0 border-bottom-0">
 					<div class="collapse" id="prtg">
-						<div class="card-body">
+						<div class="card-body mb-5">
 							<h5 class="card-title">PRTG</h5>
 							<h6 class="card-subtitle mb-2 text-muted">Predicted Retrieval Time Generator</h6>
+							<p>We are developing on a module which predicts when a given container will be picked up.</p>
+							<p>More information coming soon...</p>
 						</div>
 					</div>
 				</div>
@@ -102,7 +124,7 @@
 
 		<div class="d-none" id="contact-content">
 			<h2>Contact Us</h2>
-			<p>IntelliPort is a new company. if you have an inquiries of any sort, shoot use a message</p>
+			<p>IntelliPort is small but growing. For inquiries or comments of any sort, send us a message.</p>
 			<form class="contact-form">
 			  <div class="form-group">
 			    <label for="email-input">Email address</label>
