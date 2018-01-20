@@ -43,6 +43,13 @@ nav a:visited, nav a:hover, nav a:link {
     background-color: white;
     border-color: #623FD6; }
 
+.card a:visited, .card a:hover, .card a:link {
+  text-decoration: none;
+  color: inherit; }
+
+.card-header {
+  background-color: white; }
+
 .font-weight-medium {
   font-weight: 400; }
 
@@ -55,7 +62,7 @@ nav a:visited, nav a:hover, nav a:link {
   color: #623FD6;
   font-weight: 400; }
 
-.no-border, .collapse .card-body {
+.no-border {
   border-width: 0; }
 
 .rounded-1 {
@@ -64,9 +71,11 @@ nav a:visited, nav a:hover, nav a:link {
 .rounded-2 {
   border-radius: 10px; }
 
+.rounded-bottom-2 {
+  border-radius: 0 0 10px 10px; }
+
 .rounded-top-2 {
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px; }
+  border-radius: 10px 10px 0 0; }
 
 .text-gray {
   color: #7f7f7f; }

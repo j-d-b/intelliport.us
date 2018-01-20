@@ -1,3 +1,7 @@
+// Tried to make this a single page site for simplicity, using hashes
+// Appended '-content' so has didn't scroll to the content using the has ref
+// Jacob Brady
+
 $(document).ready(function(){
   var hash = $(location).attr('hash');
   if (hash == ""){ // index.html defaults to home

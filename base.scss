@@ -1,4 +1,12 @@
-// Sass stuff, elements, classes, id (all alphabetical)
+// Tried to write this in Boostrap-inspired atomic css
+// Jacob Brady
+
+// Doc Order
+// -------------------------
+// Sass stuff (random)
+// elements   (alphabetical)
+// classes    (alphabetical)
+// id         (alphabetical)
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700');
 
@@ -55,11 +63,17 @@ nav {
   }
 }
 
-.collapse {
-  .card-body{
-    @extend .no-border;
+.card {
+  a:visited, a:hover, a:link {
+    text-decoration: none;
+    color: inherit;
   }
 }
+
+.card-header{
+  background-color: white;
+}
+
 
 .font-weight-medium {
   font-weight: 400;
@@ -90,9 +104,12 @@ nav {
   border-radius: 10px;
 }
 
+.rounded-bottom-2 {
+  border-radius: 0 0 10px 10px;
+}
+
 .rounded-top-2 {
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
 .text-gray {
