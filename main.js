@@ -10,8 +10,12 @@ $(document).ready(function(){
   $('#content').html($(''+hash+'-content').html()); // load w/ correct content
   $('.navbar-nav a[href="'+hash+'"]').addClass('nav-active'); // highlight current section
 
+  if(hash === '#products'){
+    setupProjHandlers(hash);
+  }
+
   // "switch page" -- spa version
-  $('.nav-item').click(function() {
+  $('.nav-item').on('click', function() {
     // change nav-active highlight
     if ($(this).hasClass('nav-active')){
       return;
@@ -23,7 +27,30 @@ $(document).ready(function(){
       // switch content
       var ref = $(this).attr('href');
       $('#content').html($(''+ref+'-content').html());
+
+      if (ref === '#products') {
+        setupProjHandlers(ref);
+      }
     }
   });
 
 });
+
+
+function setupProjHandlers(ref){ // because they can't init while hidden
+  // when it starts showing, drop border radius
+  $('.last-product').on('show.bs.collapse', function () {
+    $('#last-product-header').addClass('rounded-0');
+  });
+
+  // when it finishes hiding, give back inherited border radius
+  $('.last-product').on('hidden.bs.collapse', function() {
+    $('#last-product-header').removeClass('rounded-0');
+  });
+
+  $('.product-header').on('click', function(){
+    $('.product-header').not($(this)).removeClass('product-selected');
+    $(this).toggleClass('product-selected');
+  });
+
+}

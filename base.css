@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400");
 ::-webkit-input-placeholder {
   font-weight: 300; }
 
@@ -11,7 +12,7 @@
 :-ms-input-placeholder {
   font-weight: 300; }
 
-nav a:visited, nav a:hover, nav a:link {
+.anchor-plain a:visited, nav a:visited, .anchor-plain a:hover, nav a:hover, .anchor-plain a:link, nav a:link {
   text-decoration: none;
   color: inherit; }
 
@@ -43,13 +44,6 @@ nav a:visited, nav a:hover, nav a:link {
     background-color: white;
     border-color: #623FD6; }
 
-.card a:visited, .card a:hover, .card a:link {
-  text-decoration: none;
-  color: inherit; }
-
-.card-header {
-  background-color: white; }
-
 .font-weight-medium {
   font-weight: 400; }
 
@@ -58,12 +52,35 @@ nav a:visited, nav a:hover, nav a:link {
   box-shadow: none;
   border-color: #623FD6; }
 
+.product-header:hover {
+  background-color: #F8F9FA; }
+.product-header:active {
+  background-color: #ededed; }
+
 .navbar-nav .nav-active {
   color: #623FD6;
   font-weight: 400; }
+.navbar-nav a::after {
+  display: block;
+  content: attr(data-text);
+  font-weight: 400;
+  height: 0;
+  visibility: hidden; }
 
-.no-border {
-  border-width: 0; }
+.product-body-mid.list-group-item {
+  border-radius: 0;
+  border-bottom: 0; }
+
+.product-header.list-group-item {
+  border-radius: 0; }
+
+.product-header:hover, .product-header:visited, .product-header:link {
+  text-decoration: none;
+  color: inherit; }
+
+.product-selected {
+  background-color: #F8F9FA;
+  font-weight: 400; }
 
 .rounded-1 {
   border-radius: 8px; }
@@ -71,10 +88,14 @@ nav a:visited, nav a:hover, nav a:link {
 .rounded-2 {
   border-radius: 10px; }
 
-.rounded-bottom-2 {
+.rounded-bottom-2, #last-product-body, #last-product-header {
   border-radius: 0 0 10px 10px; }
 
-.rounded-top-2 {
+.rounded-top-0 {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+.rounded-top-2, #first-product-header {
   border-radius: 10px 10px 0 0; }
 
 .text-gray {
@@ -85,7 +106,11 @@ nav a:visited, nav a:hover, nav a:link {
 
 .text-roboto {
   font-weight: 300;
-  font-family: "Roboto"; }
+  font-family: "Roboto", sans-serif; }
+
+.text-lato {
+  font-weight: 300;
+  font-family: "Lato", sans-serif; }
 
 .unselectable {
   -webkit-touch-callout: none;
@@ -94,5 +119,8 @@ nav a:visited, nav a:hover, nav a:link {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
+
+#products-list .card {
+  border: 0; }
 
 /*# sourceMappingURL=base.css.map */
