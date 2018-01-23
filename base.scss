@@ -8,10 +8,12 @@
 // classes    (alphabetical)
 // id         (alphabetical)
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
 
 $iport-gray: #7f7f7f;
 $iport-purple: #623FD6;
+$focus-gray: #F8F9FA;
 
 @mixin placeholder {
   ::-webkit-input-placeholder {@content;}
@@ -20,9 +22,13 @@ $iport-purple: #623FD6;
   :-ms-input-placeholder      {@content;}
 }
 
-@include placeholder {font-weight:300;}
+@include placeholder {font-weight:300;} // form placeholder matches doc weight
 
 nav {
+  @extend .anchor-plain
+}
+
+.anchor-plain {
   a:visited, a:hover, a:link {
     text-decoration: none;
     color: inherit;
@@ -63,18 +69,6 @@ nav {
   }
 }
 
-.card {
-  a:visited, a:hover, a:link {
-    text-decoration: none;
-    color: inherit;
-  }
-}
-
-.card-header{
-  background-color: white;
-}
-
-
 .font-weight-medium {
   font-weight: 400;
 }
@@ -85,15 +79,48 @@ nav {
   border-color: $iport-purple;
 }
 
+.product-header {
+  &:hover {
+    background-color: $focus-gray;
+  }
+  &:active {
+    background-color: #ededed;
+  }
+}
+
 .navbar-nav {
   .nav-active {
     color: $iport-purple;
     font-weight: 400;
   }
+  a::after { // prevents changing font-weight from changing container width
+    display: block;
+    content: attr(data-text);
+    font-weight: 400;
+    height: 0;
+    visibility: hidden;
+  }
 }
 
-.no-border {
-  border-width: 0;
+.product-body-mid.list-group-item {
+  border-radius: 0;
+  border-bottom: 0;
+}
+
+.product-header.list-group-item {
+  border-radius: 0;
+}
+
+.product-header {
+  &:hover, &:visited, &:link {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.product-selected {
+  background-color: $focus-gray;
+  font-weight: 400;
 }
 
 .rounded-1 {
@@ -106,6 +133,11 @@ nav {
 
 .rounded-bottom-2 {
   border-radius: 0 0 10px 10px;
+}
+
+.rounded-top-0 {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .rounded-top-2 {
@@ -122,7 +154,12 @@ nav {
 
 .text-roboto {
   font-weight: 300;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
+}
+
+.text-lato {
+  font-weight: 300;
+  font-family: "Lato", sans-serif;
 }
 
 .unselectable {
@@ -132,4 +169,20 @@ nav {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+#first-product-header {
+  @extend .rounded-top-2
+}
+
+#last-product-body {
+  @extend .rounded-bottom-2
+}
+
+#last-product-header {
+  @extend .rounded-bottom-2
+}
+
+#products-list .card {
+  border: 0;
 }

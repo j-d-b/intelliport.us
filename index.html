@@ -30,16 +30,16 @@
 		<div class="container">
 			<h1 class="text-hide">IntelliPort, Inc.</h1> <!-- for search engines -->
 
-			<div class="row justify-content-center">
-				<nav class="navbar justify-content-center border-purple text-gray text-roboto bg-white rounded-2 m-3 mt-sm-5 unselectable d-print">
+			<div class="row justify-content-center p-3 pt-sm-5">
+				<nav class="navbar justify-content-center border-purple text-gray text-roboto bg-white rounded-2 unselectable d-print">
 					<a class="navbar-brand pr-sm-3" href="index.html">
 						<img class="pb-1" src="intelliport_inc.svg" width="200" height="44" alt="IPort" />
 					</a>
 					<div class="navbar-nav mx-auto">
 						<div class="d-flex flex-nowrap">
-							<a class="nav-item nav-link p-2" href="#home">Home</a>
-							<a class="nav-item nav-link p-2" href="#projects">Projects</a>
-							<a class="nav-item nav-link p-2" href="#contact">Contact</a>
+							<a class="nav-item nav-link p-2" href="#home" data-text="Home">Home</a>
+							<a class="nav-item nav-link p-2" href="#products" data-text="Products">Products</a>
+							<a class="nav-item nav-link p-2" href="#contact" data-text="Contact">Contact</a>
 						</div>
 					</div>
 				</nav>
@@ -58,81 +58,81 @@
 			<h2>About Us</h2>
 			<p><span class="font-weight-medium">IntelliPort, Inc.</span> is a software development company that uses technology and analytics to boost productivity by optimizing system efficiency.</p>
 			<p>IntelliPort focuses on <span class="font-weight-medium">intelligent optimization in the container terminal industry</span>. Current terminal yard operations leave ample room for innovation, especially in terms of yield improvement—that is, maximizing the profitability of existing investments in terminal infrastructure.</p>
-			<p>IntelliPort produces <span class="font-weight-medium">smart modules</span> which can be integrated with a Terminal Operating System (TOS). We have partnered with leading academic institutions to develop algorithms for our decision modules and have valuable industry knowledge from real-world experience with port operations.</p>
+			<p>IntelliPort produces <span class="font-weight-medium">smart modules</span> which can be integrated with a Terminal Operating System (TOS). IntelliPort's software is backed by <a href="https://vgalle.github.io/research/" target="_blank">academic research</a> and industry knowledge from experience with port operations.</p>
 		</div>
 
-		<div class="d-none" id="projects-content">
-			<h2>Projects</h2>
-			<p>In pursuit of creating novel products, IntelliPort has directed research and development to three main areas:</p>
-
-			<div class="card rounded-2 mb-3">
-				<a class="card-header" data-toggle="collapse" href="#dsm" role="button" aria-expanded="false" aria-controls="dsm">Dynamic human resource allocation based on demand</a>
-				<div class="collapse" id="dsm">
-					<div class="card-body">
-						<h5 class="card-title">DSM</h5>
-						<h6 class="card-subtitle mb-2 text-muted">Dynamic Schedule Module</h6>
-						<p>IntelliPort is developing the dynamic schedule module to <span class="font-weight-medium">automate and optimize creation of staff schedules</span> to minimize cost of human resources.</p>
-						<p>The DSM offers two unique tools:</p>
-						<ul>
-							<li>A simulator</li>
-							<li>A schedule generator</li>
-						</ul>
-						<p>The <span class="font-weight-medium">simulator</span> helps recruitment planners determine hiring needs by generating the number of required new exployees using a rolling basis demand over a selected time interval (e.g. weeks, months, years).</p>
-						<p>The <span class="font-weight-medium">schedule generator</span> builds cost-efficient schedules based on forecasted demand. It remains flexible by allowing schedules to be updated as demand changes.</p>
-						<p>The DSM can integrate with a Terminal Operating System (TOS) to dynamically receive the demand for work. It can also integrate with an Enterprise Resource Planning (ERP) system to provide working hours for each employee, including overtime and on-call hours, and thus allow for immediate payroll generation.</p>
-						<p>Check out the intial <a href="docs/dsm_summary.pdf" target="_blank">summary document</a> for more information.</p>
+		<div class="d-none" id="products-content">
+			<h2>Products</h2>
+			<p>In pursuit of creating novel products, IntelliPort has directed research and development to three areas:</p>
+			<!--
+				In order to allow the current products-list structure to support
+				additional products without changing css or js, ensure:
+					- The first element in the list-group has id #first-product-header
+					- All collapsible product bodies except the last have class
+						.product-body-mid
+					- The last product header has id #last-product-header
+					- The last product body has id #last-product-body
+	 		-->
+			<div class="list-group pb-3" id="products-list">
+				<div class="card"> <!-- for bootstrap-style accordion w/ data-parent, all must be wrapped in a card -->
+					<a class="product-header list-group-item" id="first-product-header" href data-toggle="collapse" data-parent="#products-list" data-target="#dsm-overview" aria-expanded="false" aria-controls="dsm-overview">Dynamic human resource allocation based on demand</a>
+					<div class="collapse" id="dsm-overview">
+						<div class="product-body-mid list-group-item">
+							<div class="card-body">
+								<h4 class="card-title">DSM</h4>
+								<h6 class="card-subtitle font-weight-medium mb-2 text-muted">Dynamic Schedule Module</h6>
+								<p>IntelliPort is developing a module to <span class="font-weight-medium">automate and optimize creation of staff schedules</span> to minimize cost of human resources and ensure equity.</p>
+								<p>The DSM offers two tools:</p>
+								<p>A <span class="font-weight-medium">simulator</span> helps recruitment planners determine hiring needs by generating the number of required employees over a selected time interval (e.g. weeks, months, years).</p>
+								<p>A <span class="font-weight-medium">schedule generator</span> builds cost-efficient schedules based on forecasted demand. It remains flexible by allowing schedules to be updated as demand changes, employing a concept-of 'on-call' to adapt to short-notice changes in ship schedules.</p>
+								<p>The DSM's unique design rotates employees across equipment and time-slots to ensure equal opportunity for success, which <span class="font-weight-medium">allows for productivity-based incentives.</span></p>
+								<p>Check out the DSM <a href="docs/dsm_summary.pdf" target="_blank">project page</a> for more information.</p>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="card rounded-2 mb-3">
-				<a class="card-header" data-toggle="collapse" href="#crpm" role="button" aria-expanded="false" aria-controls="crpm">Minimizing unproductive container moves</a>
-				<div class="collapse" id="crpm">
-					<div class="card-body border-0">
-						<h5 class="card-title">CRPM</h5>
-						<h6 class="card-subtitle mb-2 text-muted">Container Relocation Problem Module</h6>
-						<p>IntelliPort is beginning development of a smart module that uses expected container retrieval order to maximize yard efficiency by minimizing the number of future relocations that are caused by the placement of blocking or new containers.</p>
-						<p>The CRPM has two functions:</p>
-						<ol class="font-weight-medium">
-							<li><span class="">Determining placement within a block for relocation of a blocking container during retrieval of a requested container</span></li>
-							<li><span class="">Determining placement within a block when stacking a new container</span></li>
-						</ol>
-						<p>At a high level, the CRP software takes in a container ID to retrieve (<span class="font-weight-medium">1</span>) or a block location to stack a new container (<span class="font-weight-medium">2</span>) and <span class="font-weight-medium">outputs the optimized set of moves</span> that should be taken to complete this action.</p>
-						<p>CRPM <span class="font-italic">receives</span> data from a Terminal Operating System (TOS) about containers currently stacked in the yard to determine departure order and <span class="font-italic">sends</span> the list of optimal moves to the TOS as instructions for use by crane operators. The module will continuously refresh its information and update container expected retrieval order in real-time based on changes in the yard.</p>
-						<p>If a terminal has implemented a Prediction System (PS) for container retrieval times or Truck Appointment System (TAS), CRPM will also receive data from these.</p>
-						<p>For a more detailed summary (with a bit of background information), read the brief <a href="docs/crpm_summary.pdf" target="_blank">software summary</a>.</p>
+				<div class="card">
+					<a class="product-header list-group-item" data-toggle="collapse" href data-target="#crpm" data-parent="#products-list" aria-expanded="false" aria-controls="crpm">Minimizing unproductive container moves</a>
+					<div class="collapse" id="crpm">
+						<div class="product-body-mid list-group-item">
+							<div class="card-body">
+								<h4 class="card-title">CRPM</h4>
+								<h6 class="card-subtitle font-weight-medium mb-2 text-muted">Container Relocation Problem Module</h6>
+								<p>IntelliPort is beginning development of a smart module that uses expected container retrieval order to maximize yard efficiency by minimizing the number of future relocations that are caused by the placement of blocking or new containers.</p>
+								<p>The CRPM has two functions:</p>
+								<ol class="font-weight-medium">
+									<li><span class="">Determining placement within a block for relocation of a blocking container during retrieval of a requested container</span></li>
+									<li><span class="">Determining placement within a block when stacking a new container</span></li>
+								</ol>
+								<p>At a high level, the module takes in a container ID to retrieve (<span class="font-weight-medium">1</span>) or a block location to stack a new container (<span class="font-weight-medium">2</span>) and <span class="font-weight-medium">outputs the optimized set of moves</span> that should be taken to complete this action.</p>
+								<p>For more details, go <a href="#">here.</a></p>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="card rounded-2">
-				<a class="card-header" data-toggle="collapse" href="#prtg" role="button" aria-expanded="false" aria-controls="prtg">Predicting container retrieval date/time</a>
-				<div class="collapse" id="prtg">
-					<div class="card-body">
-						<h5 class="card-title">PRTG</h5>
-						<h6 class="card-subtitle mb-2 text-muted">Predicted Retrieval Time Generator</h6>
-						<p>We are developing on a module which predicts when a given container will be picked up.</p>
-						<p>More information coming soon...</p>
+				<div class="card">
+					<a class="product-header list-group-item" id="last-product-header" data-toggle="collapse" href data-target="#prtg" data-parent="#products-list" aria-expanded="false" aria-controls="prtg">Predicting container retrieval date/time</a>
+					<div class="collapse last-product" id="prtg">
+						<div class="list-group-item" id="last-product-body">
+							<div class="card-body">
+								<h4 class="card-title">PRTG</h4>
+								<h6 class="card-subtitle font-weight-medium mb-2 text-muted">Predicted Retrieval Time Generator</h6>
+								<p>We are developing on a module which predicts when a given container will be picked up.</p>
+								<p>More information coming soon...</p>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
+
+			</div> <!-- .list-group, #products-list -->
 		</div>
-
 
 		<div class="d-none" id="contact-content">
 			<h2>Contact Us</h2>
-			<p>IntelliPort is small but growing. For inquiries or comments of any sort, send us a message.</p>
-			<form class="contact-form">
-			  <div class="form-group">
-			    <label for="email-input">Email address</label>
-			    <input type="email" class="form-control rounded-1" id="email-input" placeholder="Enter email">
-			  </div>
-			  <div class="form-group">
-			    <label for="message-input">Message</label>
-			    <textarea class="form-control rounded-1" id="message-input" rows="4" placeholder="Thoughts, proposals, requests..."></textarea>
-			  </div>
-				<button type="submit" class="btn btn-submit rounded-1 mb-2">Submit</button>
-			</form>
+			<p>IntelliPort is located at <span class="font-weight-medium">43 Thorndike Street, Suite S2-3</span> in <span class="font-weight-medium">Cambridge, MA 02141</span></p>
+			<p class="anchor-plain">For general inquiries or comments, send us a message at <a class="font-weight-medium" href="mailto:info@intelliport.us" target="_blank">info@intelliport.us</a></p>
 		</div>
 
 		<!-- bootstrap 4 beta -->
