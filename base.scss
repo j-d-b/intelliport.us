@@ -9,7 +9,6 @@
 // id         (alphabetical)
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,600');
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
 
 $iport-gray: #7f7f7f;
 $iport-purple: #623FD6;
@@ -35,18 +34,8 @@ nav {
   }
 }
 
-.bg-purple {
-  background-color: $iport-purple;
-}
-
 .border-purple {
   border-width: 0.095rem;
-  border-style: solid;
-  border-color: $iport-purple;
-}
-
-.border-top-purple {
-  border-width: 0.095rem 0 0 0;
   border-style: solid;
   border-color: $iport-purple;
 }
@@ -57,26 +46,8 @@ nav {
   border-color: $iport-purple;
 }
 
-.btn-submit {
-  color: $iport-gray;
-  font-weight: 300;
-  background-color: white;
-  border-color: $iport-gray; //#CED4DA; <-- bs gray of textarea and input
-  &:hover {
-    color: $iport-purple;
-    background-color: white;
-    border-color: $iport-purple;
-  }
-}
-
 .font-weight-medium {
   font-weight: 400;
-}
-
-.form-control:focus, .btn-submit:focus {
-  outline: none;
-  box-shadow: none;
-  border-color: $iport-purple;
 }
 
 .product-header {
@@ -84,7 +55,7 @@ nav {
     background-color: $focus-gray;
   }
   &:active {
-    background-color: #ededed;
+    background-color: #ededed; // darken on click instant
   }
 }
 
@@ -123,24 +94,15 @@ nav {
   font-weight: 400;
 }
 
-.rounded-1 {
-  border-radius: 8px;
-}
-
-.rounded-2 {
+.rounded-custom {
   border-radius: 10px;
 }
 
-.rounded-bottom-2 {
+.rounded-bottom-custom {
   border-radius: 0 0 10px 10px;
 }
 
-.rounded-top-0 {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.rounded-top-2 {
+.rounded-top-custom {
   border-radius: 10px 10px 0 0;
 }
 
@@ -148,18 +110,9 @@ nav {
   color: $iport-gray;
 }
 
-.text-purple {
-  color: $iport-purple;
-}
-
 .text-roboto {
   font-weight: 300;
   font-family: "Roboto", sans-serif;
-}
-
-.text-lato {
-  font-weight: 300;
-  font-family: "Lato", sans-serif;
 }
 
 .unselectable {
@@ -172,15 +125,11 @@ nav {
 }
 
 #first-product-header {
-  @extend .rounded-top-2
+  @extend .rounded-top-custom
 }
 
-#last-product-body {
-  @extend .rounded-bottom-2
-}
-
-#last-product-header {
-  @extend .rounded-bottom-2
+#last-product-body, #last-product-header {
+  @extend .rounded-bottom-custom
 }
 
 #products-list .card {

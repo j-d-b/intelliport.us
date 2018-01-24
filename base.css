@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,600");
-@import url("https://fonts.googleapis.com/css?family=Lato:300,400");
 ::-webkit-input-placeholder {
   font-weight: 300; }
 
@@ -16,16 +15,8 @@
   text-decoration: none;
   color: inherit; }
 
-.bg-purple {
-  background-color: #623FD6; }
-
 .border-purple {
   border-width: 0.095rem;
-  border-style: solid;
-  border-color: #623FD6; }
-
-.border-top-purple {
-  border-width: 0.095rem 0 0 0;
   border-style: solid;
   border-color: #623FD6; }
 
@@ -34,23 +25,8 @@
   border-style: solid;
   border-color: #623FD6; }
 
-.btn-submit {
-  color: #7f7f7f;
-  font-weight: 300;
-  background-color: white;
-  border-color: #7f7f7f; }
-  .btn-submit:hover {
-    color: #623FD6;
-    background-color: white;
-    border-color: #623FD6; }
-
 .font-weight-medium {
   font-weight: 400; }
-
-.form-control:focus, .btn-submit:focus {
-  outline: none;
-  box-shadow: none;
-  border-color: #623FD6; }
 
 .product-header:hover {
   background-color: #F8F9FA; }
@@ -82,35 +58,21 @@
   background-color: #F8F9FA;
   font-weight: 400; }
 
-.rounded-1 {
-  border-radius: 8px; }
-
-.rounded-2 {
+.rounded-custom {
   border-radius: 10px; }
 
-.rounded-bottom-2, #last-product-body, #last-product-header {
+.rounded-bottom-custom, #last-product-body, #last-product-header {
   border-radius: 0 0 10px 10px; }
 
-.rounded-top-0 {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0; }
-
-.rounded-top-2, #first-product-header {
+.rounded-top-custom, #first-product-header {
   border-radius: 10px 10px 0 0; }
 
 .text-gray {
   color: #7f7f7f; }
 
-.text-purple {
-  color: #623FD6; }
-
 .text-roboto {
   font-weight: 300;
   font-family: "Roboto", sans-serif; }
-
-.text-lato {
-  font-weight: 300;
-  font-family: "Lato", sans-serif; }
 
 .unselectable {
   -webkit-touch-callout: none;
