@@ -28,11 +28,10 @@
 
 	<body>
 		<div class="container">
-			<h1 class="text-hide">IntelliPort, Inc.</h1> <!-- for search engines -->
-
+			<h1 class="text-hide d-none d-sm-block">IntelliPort, Inc.</h1> <!-- for search engines; the d-none and d-sm-block to hide completely on small displays where the h1 spacing matters -->
 			<div class="row justify-content-center p-3 pt-sm-5">
 				<nav class="navbar justify-content-center border-purple text-gray text-roboto bg-white rounded-2 unselectable d-print">
-					<a class="navbar-brand pr-sm-3" href="index.html">
+					<a class="navbar-brand pr-sm-3 pl-sm-2 pl-3" href="index.html"> <!-- pl-3 to visually center on xs display -->
 						<img class="pb-1" src="intelliport_inc.svg" width="200" height="44" alt="IPort" />
 					</a>
 					<div class="navbar-nav mx-auto">
@@ -45,7 +44,7 @@
 				</nav>
 			</div>
 
-			<div class="row m-1 mt-2 mt-sm-4">
+			<div class="row m-1 mt-2 mt-sm-4 mb-4">
 				<div class="col border-left-purple text-roboto" id="content"></div>
 			</div>
 
