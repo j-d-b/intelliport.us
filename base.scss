@@ -2,7 +2,7 @@
 // Jacob Brady
 
 // Doc Order
-// -------------------------
+// --------------------------
 // Sass stuff (random)
 // elements   (alphabetical)
 // classes    (alphabetical)
@@ -110,6 +110,10 @@ nav {
   color: $iport-gray;
 }
 
+.text-purple {
+  color: $iport-purple;
+}
+
 .text-roboto {
   font-weight: 300;
   font-family: "Roboto", sans-serif;
@@ -126,6 +130,10 @@ nav {
 
 #first-product-header {
   @extend .rounded-top-custom
+}
+
+#footer {
+  font-size: 0.87rem;
 }
 
 #last-product-body, #last-product-header {

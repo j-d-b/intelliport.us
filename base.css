@@ -70,6 +70,9 @@
 .text-gray {
   color: #7f7f7f; }
 
+.text-purple {
+  color: #623FD6; }
+
 .text-roboto {
   font-weight: 300;
   font-family: "Roboto", sans-serif; }
@@ -81,6 +84,9 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
+
+#footer {
+  font-size: 0.87rem; }
 
 #products-list .card {
   border: 0; }
