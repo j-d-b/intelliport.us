@@ -13,7 +13,7 @@ $(document).ready(function(){
     var hash = $(location).attr('hash');
     if (hash === '#dsm-page' || hash === '#crm-page') {
       alert("here");
-      $('#content').html($('#product-content').html());
+      $('#content').html($('#products-content').html());
       return;
     }
     // change nav-active highlight
