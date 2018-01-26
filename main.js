@@ -15,7 +15,7 @@ $(document).ready(function(){
     if ($(this).hasClass('nav-active')){ // already highlighted
       var hash = $(location).attr('hash');
       if (hash === '#dsm-page' || hash === '#crm-page'){
-        $('#content').html($('#project-content').html());
+        $('#content').html($('#product-content').html());
       }
       else {
         return;
@@ -52,11 +52,11 @@ function displayContent(hash){
   }
   else if (hash === '#dsm-page') {
     $("#content").load( "_dsm.html");
-    $('.navbar-nav a[href="#projects"]').addClass('nav-active');
+    $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else if (hash === '#crm-page') {
     $("#content").load( "_crm.html");
-    $('.navbar-nav a[href="#projects"]').addClass('nav-active');
+    $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else { // something that doesn't exist, default to home ()
     $('#content').html($('#home-content').html()); // load w/ correct content
