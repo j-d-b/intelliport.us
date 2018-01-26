@@ -12,15 +12,20 @@ $(document).ready(function(){
   $('.nav-item').on('click', function() {
     // change nav-active highlight
     var ref = $(this).attr('href');
-    if ($(this).hasClass('nav-active')){
-      return;
+    if ($(this).hasClass('nav-active')){ // already highlighted
+      var hash = $(location).attr('hash');
+      if (hash === '#dsm-page' || hash === '#crm-page'){
+        $('#content').html($('#project-content').html());
+      }
+      else {
+        return;
+      }
     }
     else {
       $('.nav-item').removeClass('nav-active');
       $(this).addClass('nav-active');
 
       // switch content
-      var ref = $(this).attr('href');
       $('#content').html($(''+ref+'-content').html());
 
       if (ref === '#products') {
@@ -47,9 +52,11 @@ function displayContent(hash){
   }
   else if (hash === '#dsm-page') {
     $("#content").load( "_dsm.html");
+    $('.navbar-nav a[href="#projects"]').addClass('nav-active');
   }
   else if (hash === '#crm-page') {
     $("#content").load( "_crm.html");
+    $('.navbar-nav a[href="#projects"]').addClass('nav-active');
   }
   else { // something that doesn't exist, default to home ()
     $('#content').html($('#home-content').html()); // load w/ correct content
