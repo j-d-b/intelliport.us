@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 
 // Determine which content to display on page load by url hash
-function displayContent(hash){
+function displayContent(hash) {
   // could be a bit more general in these for easier expansion... need more time
   if (hash === ""){ // null is home
     hash = '#home';
@@ -54,10 +54,12 @@ function displayContent(hash){
   }
   else if (hash === '#dsm-page') {
     $("#content").load( "_dsm.html");
+    location.hash = "#" + "dsm-page";
     $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else if (hash === '#crm-page') {
     $("#content").load( "_crm.html");
+    location.hash = "#" + "dsm-page";
     $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else { // something that doesn't exist, default to home ()
