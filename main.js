@@ -17,7 +17,6 @@ $(document).ready(function(){
       setupProjHandlers();
       return;
     }
-
     // change nav-active highlight
     var ref = $(this).attr('href');
     if ($(this).hasClass('nav-active')){ // already highlighted
@@ -37,6 +36,7 @@ $(document).ready(function(){
   });
 
 });
+
 
 // Determine which content to display on page load by url hash
 function displayContent(hash){
