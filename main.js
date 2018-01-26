@@ -39,7 +39,7 @@ $(document).ready(function(){
   $('#tests').on('click', function() {
     alert("test clicked");
 
-    $("#content").load( "http://ec2-54-197-199-71.compute-1.amazonaws.com/iport/_dsm.html", function(){
+    $("#content").load( "/_dsm.html", function(){
       alert("he worked");
     });
   });
