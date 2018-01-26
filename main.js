@@ -10,12 +10,14 @@ $(document).ready(function(){
 
   // "switch page" -- spa version
   $('.nav-item').on('click', function() {
+    // if product page, can return to products
     var hash = $(location).attr('hash');
     if (hash === '#dsm-page' || hash === '#crm-page') {
-      alert("here");
       $('#content').html($('#products-content').html());
+      setupProjHandlers();
       return;
     }
+
     // change nav-active highlight
     var ref = $(this).attr('href');
     if ($(this).hasClass('nav-active')){ // already highlighted
@@ -29,7 +31,7 @@ $(document).ready(function(){
       $('#content').html($(''+ref+'-content').html());
 
       if (ref === '#products') {
-        setupProjHandlers(ref);
+        setupProjHandlers();
       }
     }
   });
@@ -65,7 +67,7 @@ function displayContent(hash){
 }
 
 
-function setupProjHandlers(ref){ // because they can't init while hidden
+function setupProjHandlers(){ // because they can't init while hidden
   // when it starts showing, drop border radius
   $('.last-product').on('show.bs.collapse', function () {
     $('#last-product-header').addClass('rounded-0');
