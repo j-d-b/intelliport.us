@@ -3,22 +3,15 @@
 // Jacob Brady
 
 $(document).ready(function(){
+
+  // Determine which content to display on page load by url hash
   var hash = $(location).attr('hash');
-
-  if (hash === ""){ // index.html defaults to home
-    hash = "#home";
-  }
-
-  $('#content').html($(''+hash+'-content').html()); // load w/ correct content
-  $('.navbar-nav a[href="'+hash+'"]').addClass('nav-active'); // highlight current section
-
-  if(hash === '#products'){
-    setupProjHandlers(hash);
-  }
+  displayContent(hash);
 
   // "switch page" -- spa version
   $('.nav-item').on('click', function() {
     // change nav-active highlight
+    var ref = $(this).attr('href');
     if ($(this).hasClass('nav-active')){
       return;
     }
@@ -37,6 +30,32 @@ $(document).ready(function(){
   });
 
 });
+
+// Determine which content to display on page load by url hash
+function displayContent(hash){
+  // could be a bit more general in these for easier expansion... need more time
+  if (hash === ""){ // null is home
+    hash = '#home';
+  }
+  if (hash === '#home' || hash === '#products' || hash === '#contact') {
+    $('#content').html($(''+hash+'-content').html()); // load w/ correct content
+    $('.navbar-nav a[href="'+hash+'"]').addClass('nav-active'); // highlight current section
+
+    if(hash === '#products'){
+      setupProjHandlers(hash);
+    }
+  }
+  else if (hash === '#dsm-page') {
+    $("#content").load( "_dsm.html");
+  }
+  else if (hash === '#crm-page') {
+    $("#content").load( "_crm.html");
+  }
+  else { // something that doesn't exist, default to home ()
+    $('#content').html($('#home-content').html()); // load w/ correct content
+    $('.navbar-nav a[href="#home"]').addClass('nav-active'); // highlight current section
+  }
+}
 
 
 function setupProjHandlers(ref){ // because they can't init while hidden
