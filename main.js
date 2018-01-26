@@ -1,12 +1,14 @@
 // Tried to make this a single page site for simplicity, using hashes
-// Appended '-content' so has didn't scroll to the content using the has ref
+// Appended '-content' so has didn't scroll to the content using the href
 // Jacob Brady
 
 $(document).ready(function(){
   var hash = $(location).attr('hash');
-  if (hash == ""){ // index.html defaults to home
+
+  if (hash === ""){ // index.html defaults to home
     hash = "#home";
   }
+
   $('#content').html($(''+hash+'-content').html()); // load w/ correct content
   $('.navbar-nav a[href="'+hash+'"]').addClass('nav-active'); // highlight current section
 
@@ -33,6 +35,16 @@ $(document).ready(function(){
       }
     }
   });
+
+  $('#tests').on('click', function() {
+    alert("test clicked");
+
+    $("#content").load( "http://ec2-54-197-199-71.compute-1.amazonaws.com/iport/_dsm.html", function(){
+      alert("he worked");
+    });
+  });
+
+
 
 });
 
