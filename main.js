@@ -85,12 +85,12 @@ function setupProjHandlers(){ // because they can't init while hidden
 
   $('#dsm-link').on('click', function() {
     $("#content").load( "_dsm.html");
-    location.hash = "#dsm-page";
+    window.scrollTo(0, 0);
   });
 
   $('#crm-link').on('click', function() {
     $('#content').load('_crm.html');
-    location.hash = "#crm-page";
+    window.scrollTo(0, 0);
   });
 
 }
