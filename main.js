@@ -85,12 +85,12 @@ function setupProjHandlers(){ // because they can't init while hidden
 
   $('#dsm-link').on('click', function() {
     $("#content").load( "_dsm.html");
-    window.scrollTo(0, 0);
+    window.scrollTo(0,0);
   });
 
   $('#crm-link').on('click', function() {
     $('#content').load('_crm.html');
-    window.scrollTo(0, 0);
+    window.scrollTo(0,0);
   });
 
 }
