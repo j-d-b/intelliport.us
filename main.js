@@ -54,12 +54,12 @@ function displayContent(hash) {
   }
   else if (hash === '#dsm-page') {
     $("#content").load( "_dsm.html");
-    location.hash = "#" + "dsm-page";
+    location.hash = "#dsm-page";
     $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else if (hash === '#crm-page') {
     $("#content").load( "_crm.html");
-    location.hash = "#" + "crm-page";
+    location.hash = "#crm-page";
     $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else { // something that doesn't exist, default to home ()
