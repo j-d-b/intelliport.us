@@ -53,13 +53,15 @@ function displayContent(hash) {
     }
   }
   else if (hash === '#dsm-page') {
+    location.hash = '#';
     $('#content').load('_dsm.html');
-    $('#dsm-top-link').click();
+    location.hash = '#dsm-page';
     $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else if (hash === '#crm-page') {
+    location.hash = '#';
     $('#content').load('_crm.html');
-    $('#crm-top-link').click();
+    location.hash = '#crm-page';
     $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else { // something that doesn't exist, default to home ()
