@@ -39,7 +39,7 @@ $(document).ready(function(){
   $('#tests').on('click', function() {
     alert("test clicked");
 
-    $("#content").load( "/_dsm.html", function(){
+    $("#content").load( "_dsm.html", function(){
       alert("he worked");
     });
   });
