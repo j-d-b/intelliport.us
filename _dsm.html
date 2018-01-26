@@ -1,0 +1,141 @@
+
+<h1>DSM</h1>
+<h5 class="text-muted">Dynamic Schedule Module</h5>
+<hr />
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Background</h3>
+  <p>Container terminal operations are inherently unpredictable; container ships do not arrive on a fixed schedule and schedules can change within a day in advance. Additionally, due to differences in crane speeds, uneven distribution of work across yard locations, and varying levels of congestion at different times of the day and week, productivity-based incentives are inequitable unless staff are evenly rotated across equipment and time-slots.</p>
+  <p>Thus, a dynamic system is needed in order to reduce idle workers and maximize productivity. The system must be able to be revised at any time, adapting employee count to the changing demand.</p>
+</div>
+
+<div class="mb-4">
+<h3 class="font-weight-bold">Purpose</h3>
+  <p>The Dynamic Schedule Module (DSM) <span class="font-weight-medium">automates and optimizes creation of staff schedules</span> to minimize cost of human resources, satifying the above requirements. Schedules are based on forecasted demand and can be manipulated dynamically with demand changes.</p>
+  <p class="bg-light border-purple-light p-2 rounded-custom"><span class="font-weight-medium">DSM</span> determines hiring needs, assigns <span class="font-weight-medium">on-call</span> employees to avoid overstaffing, and enables productivity-based incentives through equitable position rotation.</p>
+  <p><span class="font-weight-medium">DSM</span> also conforms to given labor laws and company regulations, combining data with other cost factors to generate cost efficient schedules.</p>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Functionality</h3>
+  <p><span class="font-weight-medium">DSM</span> offers two unique utilities:</p>
+  <ul>
+    <li>A <span class="font-weight-bold">simulator</span>, which helps recruitment planners determine hiring needs by generating the number of required new employees using a rolling basis demand over a selected time interval (e.g. weeks, months, years).</li>
+    <li>A <span class="font-weight-bold">schedule generator</span>, which builds cost-efficient schedules based on forecasted demand. It remains flexible by allowing schedules to be updated as demand changes.</li>
+  </ul>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Simulator</h3>
+  <p>The simulator is a planning tool that <span class="font-weight-medium">determines the number of new employees to hire.</span> It uses expected demand to minimize the number of required staff.</p>
+  <p>The concept of <span class="font-weight-medium">on-call</span> staff is integral here; implementing <span class="font-weight-medium">on-call</span> staff prevents overstaffing and <span class="font-weight-medium">ensures all on-site workers are being utilized.</span></p>
+  <p>The simulator mode has been trialed in two test terminals (<a href="https://www.kingabdullahport.com.sa/" target="_blank">KAP</a> and <a href="http://www.bctc-lb.com/" target="_blank">BTCT</a>) and demonstrated a striking 20% decrease in required workforce.</p>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Schedule Generator</h3>
+  <p>The schedule generator creates cost optimized schedules using demand, configuration of the labor force, labor law and company regulations, and other cost factors. The list of inputs is customizable to conform to specific terminal needs.</p>
+  <p>The system calculates the <span class="font-weight-medium">absolute fixed cost</span> that any employee must be paid when they are assigned to work. This could incorporate any number of relevant costs, such as:</p>
+  <ul>
+    <li>Salary</li>
+    <li>Overhead</li>
+    <li><span class="font-weight-medium">Overtime</span></li>
+    <li>Transportation</li>
+    <li>Food allowance</li>
+    <li>Idling</li>
+    <li><span class="font-weight-medium">On-call</span> request</li>
+  </ul>
+  <p>The <span class="font-weight-medium">absolute fixed cost</span> is used to determine when it is beneficial to bring in someone new rather than having an existing worker continue into <span class="font-weight-medium">overtime</span> hours.</p>
+  <p>An <span class="font-weight-medium">on-call</span> system is also employed to allow for unexpected demand increases to be met without paying the full rate of an on-site employee. <span class="font-weight-medium">On-call</span> employees do not attend work, but may be called in anytime, at which time their rate will raise to that of an on-site employee.</p>
+  <p>Thus, for a given time-block, staff can have one of the follow status:</p>
+  <ul>
+    <li>Not scheduled</li>
+    <li>Scheduled to work on-site</li>
+    <li><span class="font-weight-medium">On-call</span></li>
+  </ul>
+  <p><span class="font-weight-medium">Overtime</span> and <span class="font-weight-medium">on-call</span> can be assigned on a daily, weekly, or monthly basis.</p>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">On Call</h3>
+  <p>There is an average number of employees typically needed a day, but there are fluctuations in the actual amount. The is the basis for the <span class="font-weight-medium">on-call</span> system.</p>
+  <div class="border-purple-light p-2 bg-light rounded-custom mb-3">
+    <p class="font-weight-medium">An example:</p>
+    <ul>
+      <li>A weekly plan calls for 10 employees needed each day</li>
+      <li>A ship scheduled to arrive tomorrow reschedules for the day after</li>
+      <li>Without an <span class="font-weight-medium">on-call</span> system, there will be staff who are paid to be on-site tomorrow, but are not needed. The next day, the on-site staff will be unable to keep up with demand.</li>
+      <li>The <span class="font-weight-medium">on-call</span> system schedules a minimum number of staff to be on site and adpats to the fluctuations by keeping others available to come in.</li>
+    </ul>
+  </div>
+  <p>Thus <span class="font-weight-medium">DSM</span> minimizes cost by maximizing on-site staff utilization.</p>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Scheduling Constraints</h3>
+  <p><span class="font-weight-medium">DSM</span> considers the following:</p>
+  <ul>
+    <li><span class="font-weight-medium">Skill Level:</span> The system allows the entry of a “skill level” (0-10 scale) based on productivity and ability. Staff with a mix of skill levels are assigned to each shift. This facilitates consistent performance across all shifts.</li>
+    <li><span class="font-weight-medium">Add/Drop:</span>The system allows immediate adjustments such as adding/dropping.</li>
+    <li><span class="font-weight-medium">Shift Time:</span> The system allows the selection of different start/end times of the shift of a specific employee and provides flexible shift lengths for all employees.</li>
+    <li><span class="font-weight-medium">Equipment:</span> The system allows a multi-skilled staff member to rotate across equipment types.</li>
+    <li><span class="font-weight-medium">Relief Staff:</span> The system allows for allocation of relief staff. </li>
+    <li><span class="font-weight-medium">Equity:</span> The system ensures that all staff have equal productivity potential by evenly distributing:</li>
+    <ul>
+      <li>Working hours</li>
+      <li>Overtime hours</li>
+      <li>Time-slots</li>
+      <li>Days off</li>
+      <li>Night and day shifts</li>
+      <li>Equipment assignment</li>
+    </ul>
+  </ul>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Equity</h3>
+  <p>Since some shifts are more productive than others, <span class="font-weight-medium">DSM</span> rotates employees evenly between day and night shifts, and balances days off between weekends and weekdays.</p>
+  <p>Additionally, cranes can have different operating speeds, and often certain cranes are used more frequently than others, due to location. Thus, <span class="font-weight-medium">DSM</span> rotates employees across equipment as well.</p>
+  <p>DSM’s <span class="font-weight-medium">unique rotation system</span> provides equal opportunity for productivity to all employees. This allows terminals to fairly offer productivity-based incentives, promoting a <span class="font-weight-medium">positive and enthusiastic workforce.</span></p>
+  <p>The base system handles seniority and highly skilled workers with higher pay; they are still rotated evenly with all other employees. However, the option exists in input to allow them to also have priority in which machine they operate or what time-slots they prefer. This will, however, compromise the system’s equity measures and thus the ability to fairly give productivity-based incentives.</p>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Inputs</h3>
+  <p><span class="font-weight-medium">DSM</span> accepts inputs related to:</p>
+  <div class="row m-2">
+    <div class="col-md-6">
+      <span class="font-weight-medium">Labor laws and company regulations</span>
+      <ul>
+        <li>Daily working hours</li>
+        <li>Daily rest hours</li>
+        <li>Consecutive working hours</li>
+        <li>Consecutive working days</li>
+        <li>Weekly working hours</li>
+        <li>Weekly rest hours</li>
+        <li>Monthly working hours</li>
+        <li>Union regulations</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <span class="font-weight-medium">Employees</span>
+      <ul>
+        <li>Name</li>
+        <li>ID number</li>
+        <li>Position title</li>
+        <li>Qualifications</li>
+        <li>Skill level</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Outputs</h3>
+  <p>Awaiting content...</p>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">System Integration</h3>
+  <p><span class="font-weight-medium">DSM</span> can integrate with a <span class="font-weight-medium">Terminal Operating System (TOS)</span> to automatically and dynamically receive the demand for work. It can also integrate with a human resource system to provide the exact working hours for each staff, including <span class="font-weight-medium">overtime</span> and <span class="font-weight-medium">on-call</span> hours, and therefore allow immediate generation of the payroll. </p>
+</div>
