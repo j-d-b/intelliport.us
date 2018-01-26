@@ -20,6 +20,11 @@
   border-style: solid;
   border-color: #623FD6; }
 
+.border-purple-light {
+  border-width: 0.09rem;
+  border-style: solid;
+  border-color: #623FD6; }
+
 .border-left-purple {
   border-width: 0 0 0 0.095rem;
   border-style: solid;
