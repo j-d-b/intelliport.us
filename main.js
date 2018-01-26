@@ -10,16 +10,16 @@ $(document).ready(function(){
 
   // "switch page" -- spa version
   $('.nav-item').on('click', function() {
+    var hash = $(location).attr('hash');
+    alert(hash);
+    if (hash === '#dsm-page' || hash === '#crm-page') {
+      $('#content').html($('#product-content').html());
+      return;
+    }
     // change nav-active highlight
     var ref = $(this).attr('href');
     if ($(this).hasClass('nav-active')){ // already highlighted
-      var hash = $(location).attr('hash');
-      if (hash === '#dsm-page' || hash === '#crm-page'){
-        $('#content').html($('#product-content').html());
-      }
-      else {
-        return;
-      }
+      return;
     }
     else {
       $('.nav-item').removeClass('nav-active');
