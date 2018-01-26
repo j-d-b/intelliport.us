@@ -53,13 +53,13 @@ function displayContent(hash) {
     }
   }
   else if (hash === '#dsm-page') {
-    $("#content").load( "_dsm.html");
-    location.hash = "#dsm-page";
+    $('#content').load('_dsm.html');
+    $('#dsm-top-link').click();
     $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else if (hash === '#crm-page') {
-    $("#content").load( "_crm.html");
-    location.hash = "#crm-page";
+    $('#content').load('_crm.html');
+    $('#crm-top-link').click();
     $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else { // something that doesn't exist, default to home ()
