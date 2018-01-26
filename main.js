@@ -53,15 +53,11 @@ function displayContent(hash) {
     }
   }
   else if (hash === '#dsm-page') {
-    location.hash = '#';
     $('#content').load('_dsm.html');
-    location.hash = '#dsm-page';
     $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else if (hash === '#crm-page') {
-    location.hash = '#';
     $('#content').load('_crm.html');
-    location.hash = '#crm-page';
     $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else { // something that doesn't exist, default to home ()
@@ -89,10 +85,12 @@ function setupProjHandlers(){ // because they can't init while hidden
 
   $('#dsm-link').on('click', function() {
     $("#content").load( "_dsm.html");
+    location.hash = "#dsm-page";
   });
 
   $('#crm-link').on('click', function() {
     $('#content').load('_crm.html');
+    location.hash = "#crm-page";
   });
 
 }
