@@ -1,0 +1,72 @@
+<!-- CRM partial, for insert into #content -->
+
+<h1 class="display-4 font-weight-bold">CRM</h1>
+<h5 class="text-muted">Container Relocation Module</h5>
+<hr />
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Background</h3>
+  <p>Due to limited space within the storage yard, containers are stacked in columns that are only accessible from the top. Thus, in order to retrieve a container that is not on the top of a stack, the blocking containers above must be relocated to a different column.</p>
+  <p>Deciding where to relocate the blocking container can have a strong impact on the efficiency of the storage yard, as <span class="font-weight-medium">optimal placement can minimize the number of future relocations needed</span>, reducing wait time for customers, operating costs for port managers, and environmental impact.</p>
+  <p>Currently, relocation moves are decided by the planner and are based on moving the blocking container to a nearby column of the shortest height.</p>
+</div>
+
+<div class="mb-4">
+<h3 class="font-weight-bold">Purpose</h3>
+  <p class="bg-light border-purple-light p-2 rounded-custom"><span class="font-weight-medium">CRM</span> automatically determines the optimal relocation move for blocking containers on retrieval request, as well as placement of new containers within a block.</p>
+  <p>It uses expected container retrieval order to <span class="font-weight-medium">maximize yard efficiency</span> by minimizing the number of future relocations that are caused by the placement of blocking or new containers</p>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Functionality</h3>
+  <p><span class="font-weight-medium">CRM</span> has two functions:</p>
+  <div class="ml-4">
+    <p class="mb-0"><span class="font-weight-bold">Case 1.</span> Determining placement within a block for relocation of a blocking container during retrieval of a requested container</p>
+    <p><span class="font-weight-bold">Case 2.</span> Determining placement within a block when stacking a new container</p>
+  </div>
+  <p class="bg-light border-purple-light p-2 rounded-custom">At a high level, <span class="font-weight-medium">CRM</span> takes in a container ID to retrieve <span class="font-weight-medium">(case 1)</span> or a block location to stack a new container <span class="font-weight-medium">(case 2)</span> and outputs the optimized set of moves that should be taken to complete this action.</p>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Software Module</h3>
+  <p>The CRP software acts as a smart-stacking decision module which can communicate with a <span class="font-weight-medium">Terminal Operating System (TOS).</span> The software is a solution to the <span class="font-weight-medium">container relocation problem.</span></p>
+  <p><span class="font-weight-medium">CRM</span> receives data from the TOS about containers currently stacked in the yard to determine departure order and sends the list of optimal moves to the <span class="font-weight-medium">TOS</span> as instructions for use by crane operators.</p>
+  <p>The module will continuously refresh its information and update container expected retrieval order in real-time based on changes in the yard.</p>
+  <p>If the terminal has implemented a <span class="font-weight-medium">Prediction System (PS)</span> for container retrieval times or <span class="font-weight-medium">Truck Appointment System (TAS),</span> <span class="font-weight-medium">CRPM</span> will also receive data from these.</p>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Components</h3>
+  <p>The module consists of four components:</p>
+  <ol>
+    <li><span class="font-weight-medium">Departure Order Generator:</span> Using the <span class="font-weight-medium">TOS</span> data (and <span class="font-weight-medium">PS</span> and <span class="font-weight-medium">TAS</span> data, if available), generates an order of departure for all containers in the terminal. The data is all updated in real-time, adapting to short-notice requests.</li>
+    <li><span class="font-weight-medium">Virtual Port:</span> Stores data for all containers in the port, such as location (block, row, column, position) and retrieval order. Receives data from the <span class="font-weight-medium">TOS</span> and <span class="font-weight-medium">Departure Order Generator.</span> The Virtual Port is updated in real-time.</li>
+    <li><span class="font-weight-medium">Stacking Move Generator:</span> Using the departure order from the <span class="font-weight-medium">Virtual Port</span> and a placement block chosen by the planner, outputs the best column to stack a container as an operating instruction to the <span class="font-weight-medium">TOS.</span></li>
+    <li><span class="font-weight-medium">Retrieval Relocation Move Generator:</span> Using the departure order data from the <span class="font-weight-medium">Virtual Port</span> and the container ID to retrieve, generates a list of moves resulting in the retrieval of the desired container and outputs this to the <span class="font-weight-medium">TOS</span> as a list of operating instructions.</li>
+  </ol>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Inputs</h3>
+  <p><span class="font-weight-medium">CRM</span> communicates in real-time with the <span class="font-weight-medium">TOS</span> (and <span class="font-weight-medium">PS</span> and <span class="font-weight-medium">TAS</span>, if existent) to maintain a store of current information about the terminal yard. This picture of the yard, stored in the <span class="font-weight-medium">Virtual Port</span> is supplemented with departure order information from the <span class="font-weight-medium">Departure Order Generator</span>, and then forms the base informational input the optimization algorithm needs to run—container locations and order of departure.</p>
+  <p>For both <span class="font-weight-medium">CRM</span> functional cases, retrieval and stack, specific user input is required in addition to the automatically processed yard information.</p>
+  <ul>
+    <li>For the <span class="font-weight-medium">retrieval case,</span> the planner will enter the container ID of the desired container to be retrieved.</li>
+    <li>For the <span class="font-weight-medium">new container stacking case,</span> the operator must enter the block in which the new container will be stacked.</li>
+  </ul>
+  <div class="bg-light border-purple-light p-2 rounded-custom">
+    <p>To summarize, <span class="font-weight-medium">CRM</span> takes as input:</p>
+    <ul class="font-weight-medium">
+      <li>Container locations</li>
+      <li>Container departure order</li>
+      <li>Container ID (case 1) or Block ID (case 2)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Outputs</h3>
+  <p>In both functional cases, <span class="font-weight-medium">CRM</span> returns a list of operating instructions which will be sent to the <span class="font-weight-medium">TOS.</span></p>
+  <p>For the stacking of a new container, the list will contain a single instruction.</p>
+  <p>For container retrieval, the last instruction in the list will be the retrieval of the desired container.</p>
+</div>

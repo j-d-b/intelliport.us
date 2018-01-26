@@ -36,16 +36,6 @@ $(document).ready(function(){
     }
   });
 
-  $('#tests').on('click', function() {
-    alert("test clicked");
-
-    $("#content").load( "_dsm.html", function(){
-      alert("he worked");
-    });
-  });
-
-
-
 });
 
 
@@ -63,6 +53,14 @@ function setupProjHandlers(ref){ // because they can't init while hidden
   $('.product-header').on('click', function(){
     $('.product-header').not($(this)).removeClass('product-selected');
     $(this).toggleClass('product-selected');
+  });
+
+  $('#dsm-link').on('click', function() {
+    $("#content").load( "_dsm.html");
+  });
+
+  $('#crm-link').on('click', function() {
+    $('#content').load('_crm.html');
   });
 
 }
