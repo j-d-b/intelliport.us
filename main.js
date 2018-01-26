@@ -10,16 +10,15 @@ $(document).ready(function(){
 
   // "switch page" -- spa version
   $('.nav-item').on('click', function() {
-    // if product page, can return to products
+    // if product page, skips nav-active check
     var hash = $(location).attr('hash');
+    var productPage = false;
     if (hash === '#dsm-page' || hash === '#crm-page') {
-      $('#content').html($('#products-content').html());
-      setupProjHandlers();
-      return;
+      productPage = true;
     }
     // change nav-active highlight
     var ref = $(this).attr('href');
-    if ($(this).hasClass('nav-active')){ // already highlighted
+    if ($(this).hasClass('nav-active') && !productPage){ // already highlighted
       return;
     }
     else {
