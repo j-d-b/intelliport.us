@@ -14,15 +14,6 @@ $iport-gray: #7f7f7f;
 $iport-purple: #623FD6;
 $focus-gray: #F8F9FA;
 
-@mixin placeholder {
-  ::-webkit-input-placeholder {@content;}
-  :-moz-placeholder           {@content;}
-  ::-moz-placeholder          {@content;}
-  :-ms-input-placeholder      {@content;}
-}
-
-@include placeholder {font-weight:300;} // form placeholder matches doc weight
-
 nav {
   @extend .anchor-plain
 }
