@@ -33,6 +33,9 @@
 .font-weight-medium {
   font-weight: 400; }
 
+.ofl-fix {
+  overflow: hidden; }
+
 .product-header:hover {
   background-color: #F8F9FA; }
 .product-header:active {

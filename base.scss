@@ -56,6 +56,10 @@ nav {
   font-weight: 400;
 }
 
+.ofl-fix { // fixes issue with li and p border overlapping floating images
+  overflow: hidden;
+}
+
 .product-header {
   &:hover {
     background-color: $focus-gray;
