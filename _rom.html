@@ -1,0 +1,75 @@
+<!-- ROM partial, for insert into #content -->
+
+<h1 class="display-4 mb-0" id="rom-page">ROM</h1>
+<h5 class="text-muted">Container Relocation Module</h5>
+<p>Minimizing unproductive container moves</p>
+<hr />
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Background</h3>
+  <img src="images/container-yard.png" class="d-none d-md-block float-right img-fluid img-thumbnail ml-3 mb-3" width="400" height="266" />
+  <img src="images/container-yard.png" class="d-none d-sm-block d-md-none float-right img-fluid img-thumbnail mb-3 ml-3" width="250" height="166" />
+  <img src="images/container-yard.png" class="d-sm-none img-fluid img-thumbnail mb-3 mt-2" width="400" height="266" />
+  <p>Due to limited space in the storage yard, containers are stacked in columns that are only accessible from the top. Thus, in order to retrieve a container that is not on the top of a stack, the blocking containers above this container must be relocated to a different column.</p>
+  <p>The column selected for relocation of the blocking container can have a significant impact on the operational efficiency of the storage yard, as <span class="font-weight-medium">optimal placement can minimize the number of future relocations needed</span>, which reduces wait time for customers, operating costs for port managers, and environmental impact.</p>
+  <p>Currently, the selection of a column for relocation is not optimized. Typically the blocking container is moved to a nearby column with the fewest containers.</p>
+</div>
+
+<div class="mb-4">
+<h3 class="font-weight-bold">Purpose</h3>
+  <p class="bg-light border-purple-light p-3 rounded-custom"><span class="font-weight-medium">ROM</span> automatically determines the optimal relocation move for blocking containers during the retrieval of a requested container, as well as the optimal placement within a block when stacking a new container.</p>
+  <p>It uses container retrieval order to <span class="font-weight-medium">maximize operational efficiency</span> by minimizing the number of future relocations that are caused by the placement of blocking or new containers.</p>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Functionality</h3>
+  <p><span class="font-weight-medium">ROM</span> has two functions:</p>
+  <ul>
+    <li><span class="font-weight-bold">Case 1:</span> Determining placement within a block for the relocation of a blocking container during the retrieval of a requested container</li>
+    <li><span class="font-weight-bold">Case 2:</span> Determining placement within a block for stacking a new container</li>
+  </ul>
+  <p class="bg-light border-purple-light p-3 rounded-custom">At a high level, <span class="font-weight-medium">ROM</span> accepts in a container ID to retrieve <span class="font-weight-medium">(case 1)</span> or a specified block to stack a new container <span class="font-weight-medium">(case 2)</span> and outputs the optimized set of moves that should be taken to complete this action.</p>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Software Module</h3>
+  <p><span class="font-weight-medium">ROM</span> is a smart-stacking decision module that communicates with the <span class="font-weight-medium">Terminal Operating System (TOS).</span></p>
+  <p><span class="font-weight-medium">ROM</span> receives data from the <span class="font-weight-medium">TOS</span> about containers currently stacked in the yard to determine container departure order and sends the list of optimal moves to be performed to the <span class="font-weight-medium">TOS</span> as instructions for use by crane operators.</p>
+  <img src="images/containers.png" class="d-none d-lg-block float-right img-fluid img-thumbnail mr-3 ml-3" width="500" />
+  <img src="images/containers.png" class="d-none d-md-block d-lg-none float-right img-fluid img-thumbnail mr-3 ml-3" width="400" />
+  <img src="images/containers.png" class="d-none d-sm-block d-md-none float-right img-fluid img-thumbnail mb-3 ml-3" width="250" />
+  <img src="images/containers.png" class="d-sm-none img-fluid img-thumbnail mb-3" width="400" />
+  <p>The module will <span class="font-weight-medium">continuously refresh its information</span> and update the expected container retrieval order based on changes in the yard.</p>
+  <p>If the terminal has implemented a <span class="font-weight-medium">Prediction System (PS)</span> for container retrieval times or a <span class="font-weight-medium">Truck Appointment System (TAS),</span> <span class="font-weight-medium">ROM</span> will also receive data from these systems.</p>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Components</h3>
+  <p>The module consists of four components:</p>
+  <ol>
+    <li><span class="font-weight-medium">Departure Order Generator:</span> Using the <span class="font-weight-medium">TOS</span> data (and <span class="font-weight-medium">PS</span> and <span class="font-weight-medium">TAS</span> data, if available), generates an order of departure for all containers in the terminal. The data is updated in real-time, adapting to short-notice requests.</li>
+    <li><span class="font-weight-medium">Virtual Port:</span> Stores data for all containers in the port, such as location (block, row, column, position) and retrieval order. Receives data from the <span class="font-weight-medium">TOS</span> and <span class="font-weight-medium">Departure Order Generator.</span> The Virtual Port is updated in real-time.</li>
+    <li><span class="font-weight-medium">Stacking Move Generator:</span> Using the departure order from the <span class="font-weight-medium">Virtual Port</span> and a placement block chosen by the planner, outputs the best column to stack a container.</li>
+    <li><span class="font-weight-medium">Retrieval Relocation Move Generator:</span> Using the departure order data from the <span class="font-weight-medium">Virtual Port</span> and the container ID to retrieve, generates a list of moves resulting in the retrieval of the desired container and outputs this to the <span class="font-weight-medium">TOS</span>.</li>
+  </ol>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Inputs</h3>
+  <p><span class="font-weight-medium">ROM</span> communicates in real-time with the <span class="font-weight-medium">TOS</span> (and <span class="font-weight-medium">PS</span> and <span class="font-weight-medium">TAS</span>, if available) to maintain a store of current information about the terminal yard. This picture of the yard, stored in the <span class="font-weight-medium">Virtual Port</span>, is supplemented with departure order information from the <span class="font-weight-medium">Departure Order Generator</span>, and then forms the base input utilized by the optimization algorithm.</p>
+  <div class="bg-light border-purple-light p-3 rounded-custom">
+    <p>To summarize, <span class="font-weight-medium">ROM</span> requires the following inputs:</p>
+    <ul>
+      <li>Container locations</li>
+      <li>Container departure order</li>
+      <li>Container ID (for retrieval) or Block ID (for stacking)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="mb-4">
+  <h3 class="font-weight-bold">Outputs</h3>
+  <p>In both functional cases, <span class="font-weight-medium">ROM</span> returns a list of operating instructions that will be sent to the <span class="font-weight-medium">TOS.</span></p>
+  <p>For stacking a new container, the returned list will contain a single instruction.</p>
+  <p>For container retrieval, the list will contain the instructions for any required relocations followed by the retrieval of the requested container.</p>
+</div>

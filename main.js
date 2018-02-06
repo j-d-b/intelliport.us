@@ -13,7 +13,7 @@ $(document).ready(function(){
     // if product page, skips nav-active check
     var hash = $(location).attr('hash');
     var productPage = false;
-    if (hash === '#dsm-page' || hash === '#crm-page') {
+    if (hash === '#dsm-page' || hash === '#rom-page') {
       productPage = true;
     }
     // change nav-active highlight
@@ -55,8 +55,8 @@ function displayContent(hash) {
     $('#content').load('_dsm.html');
     $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
-  else if (hash === '#crm-page') {
-    $('#content').load('_crm.html');
+  else if (hash === '#rom-page') {
+    $('#content').load('_rom.html');
     $('.navbar-nav a[href="#products"]').addClass('nav-active');
   }
   else { // something that doesn't exist, default to home ()
@@ -87,8 +87,8 @@ function setupProjHandlers(){ // because they can't init while hidden
     window.scrollTo(0,0);
   });
 
-  $('#crm-link').on('click', function() {
-    $('#content').load('_crm.html');
+  $('#rom-link').on('click', function() {
+    $('#content').load('_rom.html');
     window.scrollTo(0,0);
   });
 
