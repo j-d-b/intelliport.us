@@ -49,10 +49,6 @@ nav {
   font-weight: 400;
 }
 
-.home-subheader {
-  font-size: 1.35rem;
-}
-
 .ofl-fix { // fixes issue with li and p border overlapping floating images
   overflow: hidden;
 }
@@ -144,6 +140,11 @@ nav {
   user-select: none;
 }
 
+.test {
+  font-size: .8rem;
+  
+}
+
 #first-product-header {
   @extend .rounded-top-custom
 }
@@ -152,6 +153,10 @@ nav {
   height: 50px;
   background-color: $footer-gray;
   line-height: 50px;
+}
+
+#home-box {
+  font-size: 1.05rem;
 }
 
 #last-product-body, #last-product-header {
