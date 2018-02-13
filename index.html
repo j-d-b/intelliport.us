@@ -50,12 +50,9 @@
 
 		</div> <!-- end container/main body -->
 
-		<div class="align-items-right">
-		</div>
-
 		<footer class="footer">
 			<div class="container-fluid p-0">
-				<img class="d-flex ml-sm-auto mr-sm-5 mx-auto" src="ship-purple.svg" height="59"/>
+				<img class="d-flex ml-sm-auto mr-sm-5 mx-auto" src="ship-purple.svg" height="59px"/>
 		    <div class="text-muted font-italic mx-auto align-items-center" id="footer-content">IntelliPort, Inc. 2018</div>
 			</div>
     </footer>
@@ -85,6 +82,7 @@
 			</div>
 		</div>
 
+
 		<div class="d-none" id="products-content">
 			<h2>Products</h2>
 			<p>In pursuit of creating novel products, IntelliPort has directed research and development towards three products:</p>
@@ -100,7 +98,8 @@
 			<div class="list-group pb-3 mt-4" id="products-list">
 				<div class="card"> <!-- for bootstrap-style accordion w/ data-parent, all must be wrapped in a card -->
 					<a class="product-header list-group-item" id="first-product-header" href="#dsm" data-toggle="collapse" data-parent="#products-list" aria-expanded="false" aria-controls="dsm-overview">
-						<h4>DSM <span class="align-bottom test font-weight-light">Dynamic Schedule Module</span></h4>
+						<img src="dsm-calendar.svg" class="pt-1 pl-1 mr-sm-2 float-right" width="82px"/>
+						<h4>DSM <span class="d-block d-sm-inline product-title">Dynamic Schedule Module</span></h4>
 						<h6 class="mb-1 text-muted">Optimized human resource allocation based on demand</h6>
 					</a>
 					<div class="collapse" id="dsm">
@@ -123,7 +122,8 @@
 
 				<div class="card">
 					<a class="product-header list-group-item" data-toggle="collapse" href="#rom" data-parent="#products-list" aria-expanded="false" aria-controls="rom">
-						<h4>ROM</h4>
+						<img src="rom-rtg.svg" class="pt-1 mr-sm-2 pl-1 float-right" width="82px"/>
+						<h4>ROM <span class="d-block d-sm-inline product-title">Relocation Optimization Module</span></h4>
 						<h6 class="mb-1 text-muted">Minimizing unproductive container moves</h6>
 					</a>
 					<div class="collapse" id="rom">
@@ -148,7 +148,8 @@
 
 				<div class="card">
 					<a class="product-header list-group-item" id="last-product-header" data-toggle="collapse" href="#prtg" data-parent="#products-list" aria-expanded="false" aria-controls="prtg">
-						<h4>PRTG</h4>
+						<img src="prtg-truck.svg" class="pt-1 mr-sm-2 pl-1 float-right" width="82px"/>
+						<h4>PRTG <span class="d-block d-sm-inline product-title">Predicted Retrieval Time Generator</span></h4>
 						<h6 class="mb-1 text-muted">Predicting container retrieval time/date</h6>
 					</a>
 					<div class="collapse last-product" id="prtg">
@@ -168,17 +169,20 @@
 			</div> <!-- .list-group, #products-list -->
 		</div>
 
+
 		<div class="d-none" id="contact-content">
 			<div class="row">
-				<div class="col-md-7 col-lg-8">
+				<div class="col-md-7 col-lg-8 outline-left-purple">
 					<h2>Contact Us</h2>
 					<p>IntelliPort is located at <span class="font-weight-medium">43 Thorndike Street, Suite S2-3</span> in <span class="font-weight-medium">Cambridge, MA 02141</span>.</p>
 					<p class="anchor-plain">For general inquiries or comments, send us a message at <a class="font-weight-medium" href="mailto:info@intelliport.us" target="_blank">info@intelliport.us</a>.</p>
 				</div>
-				<div class="col-md-5 col-lg-4">
+				<div class="d-none d-md-block col-md-5 col-lg-4">
 					<img src="images/thorndike.jpg" class="img-fluid img-thumbnail" />
 				</div>
-
+				<div class="d-md-none col-md-5">
+					<img src="images/thorndike.jpg" class="img-fluid img-thumbnail" />
+				</div>
 			</div>
 		</div>
 

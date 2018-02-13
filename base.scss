@@ -49,17 +49,12 @@ nav {
   font-weight: 400;
 }
 
-.ofl-fix { // fixes issue with li and p border overlapping floating images
-  overflow: hidden;
+.list-group-item {
+  border-color: #d0d0d0;
 }
 
-.product-header {
-  &:hover {
-    background-color: $focus-gray;
-  }
-  &:active {
-    background-color: #ededed; // darken on click instant
-  }
+.ofl-fix { // fixes issue with li and p border overlapping floating images
+  overflow: hidden;
 }
 
 .navbar-nav {
@@ -86,24 +81,37 @@ nav {
 }
 
 .product-header {
-  &:hover, &:visited, &:link {
+  &:visited, &:link {
     text-decoration: none;
     color: inherit;
+  }
+  &:hover {
+    background-color: $focus-gray;
+  }
+  &:active {
+    background-color: #ededed; // darken on click instant
   }
   h6 {
     font-weight: 300;
   }
+  padding: 1.25rem;
 }
 
 .product-selected {
   background-color: $focus-gray;
   h4 {
     font-weight: 600;
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
   h6 {
     font-weight: 400;
   }
+}
+
+.product-title {
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: 300;
 }
 
 .rounded-custom {
@@ -138,11 +146,6 @@ nav {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.test {
-  font-size: .8rem;
-  
 }
 
 #first-product-header {
