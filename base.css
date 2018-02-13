@@ -1,19 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,600");
-::-webkit-input-placeholder {
-  font-weight: 300; }
-
-:-moz-placeholder {
-  font-weight: 300; }
-
-::-moz-placeholder {
-  font-weight: 300; }
-
-:-ms-input-placeholder {
-  font-weight: 300; }
-
 .anchor-plain a:visited, nav a:visited, .anchor-plain a:hover, nav a:hover, .anchor-plain a:link, nav a:link {
   text-decoration: none;
   color: inherit; }
+
+.border-left-purple {
+  border-width: 0 0 0 0.095rem;
+  border-style: solid;
+  border-color: #623FD6; }
 
 .border-purple {
   border-width: 0.095rem;
@@ -25,13 +18,11 @@
   border-style: solid;
   border-color: #623FD6; }
 
-.border-left-purple {
-  border-width: 0 0 0 0.095rem;
-  border-style: solid;
-  border-color: #623FD6; }
-
 .font-weight-medium {
   font-weight: 400; }
+
+.home-subheader {
+  font-size: 1.35rem; }
 
 .ofl-fix {
   overflow: hidden; }
@@ -61,10 +52,16 @@
 .product-header:hover, .product-header:visited, .product-header:link {
   text-decoration: none;
   color: inherit; }
+.product-header h6 {
+  font-weight: 300; }
 
 .product-selected {
-  background-color: #F8F9FA;
-  font-weight: 400; }
+  background-color: #F8F9FA; }
+  .product-selected h4 {
+    font-weight: 600;
+    font-size: 1.7rem; }
+  .product-selected h6 {
+    font-weight: 400; }
 
 .rounded-custom {
   border-radius: 10px; }
@@ -93,7 +90,30 @@
   -ms-user-select: none;
   user-select: none; }
 
+#footer-content {
+  height: 50px;
+  background-color: #f3f3f3;
+  line-height: 50px; }
+
 #products-list .card {
   border: 0; }
+
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  margin-bottom: 109px;
+  /* Margin bottom by footer height */ }
+
+.footer {
+  font-weight: 300;
+  font-size: 0.85rem;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 109px;
+  /* Set the fixed height of the footer here */ }
 
 /*# sourceMappingURL=base.css.map */

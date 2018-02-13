@@ -29,9 +29,9 @@
 	<body>
 		<div class="container">
 			<h1 class="text-hide d-none d-sm-block">IntelliPort, Inc.</h1> <!-- for search engines; the d-none and d-sm-block to hide completely on small displays where the h1 spacing matters -->
-			<div class="row justify-content-center p-3 pt-sm-5">
-				<nav class="navbar justify-content-center border-purple text-gray text-roboto bg-white rounded-custom unselectable d-print">
-					<a class="navbar-brand pr-sm-3 pl-sm-2 pl-3" href="index.html"> <!-- pl-3 to visually center on xs display -->
+			<div class="row justify-content-center p-3 pt-sm-4">
+				<nav class="navbar justify-content-center border-purple text-gray text-roboto rounded-custom unselectable d-print">
+					<a class="navbar-brand pr-sm-3 pr-md-4 pl-sm-2 pl-3" href="index.html"> <!-- pl-3 to visually center on xs display -->
 						<img class="pb-1" src="intelliport-inc.svg" width="200" height="44" alt="IPort" />
 					</a>
 					<div class="navbar-nav mx-auto">
@@ -44,29 +44,45 @@
 				</nav>
 			</div>
 
-			<div class="row m-1 mt-2 mt-sm-4 mb-4">
-				<div class="col border-left-purple text-roboto px-3 px-sm-4" id="content"></div>
+			<div class="row m-1 mt-2 mt-sm-3">
+				<div class="col border-left-purple text-roboto px-3 px-sm-4 mb-2" id="content"></div>
 			</div>
 
 		</div> <!-- end container/main body -->
 
+		<div class="align-items-right">
+		</div>
+
+		<footer class="footer">
+			<div class="container-fluid p-0">
+				<img class="d-flex ml-sm-auto mr-sm-5 mx-auto" src="boat.svg" height="59"/>
+		    <div class="text-muted font-italic mx-auto align-items-center" id="footer-content">IntelliPort, Inc. 2018</div>
+			</div>
+    </footer>
 
 		<!-- content options -->
 		<!-- NOTE appened '-content' instead of linking with href hash from nav to
 		avoid scrolled view when switching content sections -->
 		<div class="d-none" id="home-content">
-			<h2>About Us</h2>
-			<img class="d-none d-md-block float-right mr-5 ml-3 mb-2 mt-2" src="iport-rtg.svg" width="220"/>
-			<p><span class="font-weight-medium">IntelliPort, Inc.</span> is a software development company that uses technology and analytics to boost productivity by optimizing system efficiency. We focus on <span class="font-weight-medium">intelligent optimization in the container terminal industry</span>.</p>
-			<img class="d-md-none mr-5 ml-3 mb-2" src="iport-rtg.svg" width="250"/>
-			<h5 class="font-weight-bold">Background</h5>
-			<p>IntelliPort was formed by a collection of people with extensive experience in various operations around the world as well as an understanding of systems and software.</p>
-			<p>IntelliPort's products result from operational needs; current terminal yard operations leave ample room for innovation, especially in terms of yield improvement—that is, <span class="font-weight-medium">maximizing the profitability of existing investments in terminal infrastructure</span>.</p>
-			<p>We have tested and validated our products with our associated companies and our optimization algorithms are backed by academic research from leading universities.</p>
-			<h5 class="font-weight-bold">Smart Modules</h5>
-			<p>IntelliPort offers <span class="font-weight-medium">commercial smart modules</span> that utilize advance decision support technology.</p>
-			<p>These modules integrate with a Terminal Operating System and/or a Enterprise Resource Planning system to create a comprehensive port management solution. Interfaces can be built between the different systems or this integration can be done manually.</p>
-			<p>Our modules are <span class="font-weight-medium">designed with a flexible architecture</span> that allows them to be licensed in the traditional manner or utilized as a service through a cloud-based platform.</p>
+			<h2 class="mb-2">About Us</h2>
+			<div class="row">
+				<div class="col-lg col-md-6 mx-auto">
+					<h5 class="home-subheader">Background</h5>
+					<p>IntelliPort was formed by a collection of people with extensive experience in various operations around the world as well as an understanding of systems and software.</p>
+					<p>IntelliPort's products result from operational needs; current terminal yard operations leave ample room for innovation, especially in terms of yield improvement—that is, <span class="font-weight-medium">maximizing the profitability of existing investments in terminal infrastructure</span>.</p>
+					<p>We have tested and validated our products with our associated companies and our optimization algorithms are backed by academic research from leading universities.</p>
+				</div>
+				<div class="col-xl-5 col-lg-4 col-md-6 mx-auto">
+					<p class="bg-light border-purple-light p-2 text-lg-center mb-3 rounded-custom" id="home-box"><span class="font-weight-medium">IntelliPort, Inc.</span> is a software development company that uses technology and analytics to boost productivity by optimizing system efficiency. We focus on <span class="font-weight-medium">intelligent optimization in the container terminal industry</span>.</p>
+					<img src="images/container-stacks.png" class="img-thumbnail" width="500" />
+				</div>
+				<div class="col-lg mx-auto">
+					<h5 class="home-subheader">Smart Modules</h5>
+					<p>IntelliPort offers <span class="font-weight-medium">commercial smart modules</span> that utilize advance decision support technology.</p>
+					<p>These modules integrate with a Terminal Operating System and/or a Enterprise Resource Planning system to create a comprehensive port management solution. Interfaces can be built between the different systems or this integration can be done manually.</p>
+					<p>Our modules are <span class="font-weight-medium">designed with a flexible architecture</span> that allows them to be licensed in the traditional manner or utilized as a service through a cloud-based platform.</p>
+				</div>
+			</div>
 		</div>
 
 		<div class="d-none" id="products-content">
@@ -81,18 +97,20 @@
 					- The last product header has id #last-product-header
 					- The last product body has id #last-product-body
 	 		-->
-			<div class="list-group pb-3" id="products-list">
+			<div class="list-group pb-3 mt-4" id="products-list">
 				<div class="card"> <!-- for bootstrap-style accordion w/ data-parent, all must be wrapped in a card -->
-					<a class="product-header list-group-item" id="first-product-header" href="#dsm" data-toggle="collapse" data-parent="#products-list" aria-expanded="false" aria-controls="dsm-overview">Dynamic Schedule Module (DSM)</a>
+					<a class="product-header list-group-item" id="first-product-header" href="#dsm" data-toggle="collapse" data-parent="#products-list" aria-expanded="false" aria-controls="dsm-overview">
+						<h4>DSM</h4>
+						<h6 class="mb-1 text-muted">Optimized human resource allocation based on demand</h6>
+					</a>
 					<div class="collapse" id="dsm">
 						<div class="product-body-mid list-group-item">
 							<div class="card-body p-1 p-sm-2 p-md-3">
 								<img src="images/schedule.png" class="d-none d-md-block float-right img-fluid img-thumbnail ml-3 mb-3" width="300" height="200" />
 								<img src="images/schedule.png" class="d-none d-sm-block d-md-none float-right img-fluid img-thumbnail mb-3 ml-3" width="210" height="140" />
-								<h4 class="card-title">DSM</h4>
-								<h6 class="card-subtitle font-weight-medium mb-3 text-muted">Optimized human resource allocation based on demand</h6>
+								<h4 class="card-title">Dynamic Schedule Module</h4>
 								<img src="images/schedule.png" class="d-sm-none img-fluid img-thumbnail mb-3" width="300" height="200" />
-								<p>The Dynamic Schedule Module <span class="font-weight-medium">automates and optimizes staff scheduling</span> by minimizing cost while ensuring equity to all parties.</p>
+								<p>The DSM <span class="font-weight-medium">automates and optimizes staff scheduling</span> by minimizing cost while ensuring equity to all parties.</p>
 								<p>The DSM offers two tools:</p>
 								<p>A <span class="font-weight-medium">simulator</span> helps recruitment planners determine hiring needs by generating the number of required employees over a selected time interval (e.g. weeks, months, years).</p>
 								<p>A <span class="font-weight-medium">schedule generator</span> builds cost-efficient schedules based on forecasted demand. It remains flexible by allowing schedules to be updated as demand changes by employing a concept of 'on-call' to adapt to short-notice changes in ship schedules.</p>
@@ -104,16 +122,18 @@
 				</div>
 
 				<div class="card">
-					<a class="product-header list-group-item" data-toggle="collapse" href="#rom" data-parent="#products-list" aria-expanded="false" aria-controls="rom">Relocation Optimization Module (ROM)</a>
+					<a class="product-header list-group-item" data-toggle="collapse" href="#rom" data-parent="#products-list" aria-expanded="false" aria-controls="rom">
+						<h4>ROM</h4>
+						<h6 class="mb-1 text-muted">Minimizing unproductive container moves</h6>
+					</a>
 					<div class="collapse" id="rom">
 						<div class="product-body-mid list-group-item">
 							<div class="card-body p-1 p-sm-2 p-md-3">
 								<img src="images/rtg-container.png" class="d-none d-md-block float-right img-fluid img-thumbnail ml-3 mb-3" width="300" height="200" />
 								<img src="images/rtg-container.png" class="d-none d-sm-block d-md-none float-right img-fluid img-thumbnail mb-3 ml-3" width="210" height="140" />
-								<h4 class="card-title">ROM</h4>
-								<h6 class="card-subtitle font-weight-medium mb-3 text-muted">Minimizing unproductive container moves</h6>
+								<h4 class="card-title">Relocation Optimization Module</h4>
 								<img src="images/rtg-container.png" class="d-sm-none img-fluid img-thumbnail mb-3" width="300" height="200" />
-								<p>The Relocation Optimization Module uses expected container retrieval order to maximize yard efficiency by minimizing the number of future relocations.</p>
+								<p>The ROM uses expected container retrieval order to maximize yard efficiency by minimizing the number of future relocations.</p>
 								<p>The ROM has two functions:</p>
 								<ol class="font-weight-medium">
 									<li><span class="">Determining where to relocate a blocking container within a block during the retrieval of a requested container</span></li>
@@ -127,16 +147,18 @@
 				</div>
 
 				<div class="card">
-					<a class="product-header list-group-item" id="last-product-header" data-toggle="collapse" href="#prtg" data-parent="#products-list" aria-expanded="false" aria-controls="prtg">Predicted Retrieval Time Generator (PRTG)</a>
+					<a class="product-header list-group-item" id="last-product-header" data-toggle="collapse" href="#prtg" data-parent="#products-list" aria-expanded="false" aria-controls="prtg">
+						<h4>PRTG</h4>
+						<h6 class="mb-1 text-muted">Predicting container retrieval time/date</h6>
+					</a>
 					<div class="collapse last-product" id="prtg">
 						<div class="list-group-item" id="last-product-body">
 							<div class="card-body p-1 p-sm-2 p-md-3">
 								<img src="images/truck.png" class="d-none d-md-block float-right img-fluid img-thumbnail ml-3 mb-3" width="300" height="200" />
 								<img src="images/truck.png" class="d-none d-sm-block d-md-none float-right img-fluid img-thumbnail mb-3 ml-3" width="210" height="140" />
-								<h4 class="card-title">PRTG</h4>
+								<h4 class="card-title">Predicted Retrieval Time Generator</h4>
 								<img src="images/truck.png" class="d-sm-none img-fluid img-thumbnail mb-3" width="300" height="200" />
-								<h6 class="card-subtitle font-weight-medium mb-3 text-muted">Predicting container retrieval time/date</h6>
-								<p>The Predicted Retrieval Time Generator forecasts the arrivals of freight forwards and truckers servicing container terminals. The PRTG considers available data to identify patterns in the arrival/departure of containers and utilizes these patterns to predict when any given import container will be retrieved.</p>
+								<p>The PRTG forecasts the arrivals of freight forwards and truckers servicing container terminals. It identifies patterns in the arrival/departure of containers and utilizes these patterns to predict when any given import container will be retrieved.</p>
 								<p>The PRTG generates a pick-up probability for each import container for future time windows. This information offers valuable insight that allows containers to be stacked in positions that will minimize future relocations.</p>
 							</div>
 						</div>
@@ -148,13 +170,13 @@
 
 		<div class="d-none" id="contact-content">
 			<div class="row">
-				<div class="col-md-7 col-lg-9">
+				<div class="col-md-7 col-lg-8">
 					<h2>Contact Us</h2>
 					<p>IntelliPort is located at <span class="font-weight-medium">43 Thorndike Street, Suite S2-3</span> in <span class="font-weight-medium">Cambridge, MA 02141</span>.</p>
 					<p class="anchor-plain">For general inquiries or comments, send us a message at <a class="font-weight-medium" href="mailto:info@intelliport.us" target="_blank">info@intelliport.us</a>.</p>
 				</div>
-				<div class="col-md-5 col-lg-3">
-					<img src="images/boston.png" class="img-fluid img-thumbnail" />
+				<div class="col-md-5 col-lg-4">
+					<img src="images/thorndike.jpg" class="img-fluid img-thumbnail" />
 				</div>
 
 			</div>

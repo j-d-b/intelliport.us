@@ -7,12 +7,14 @@
 // elements   (alphabetical)
 // classes    (alphabetical)
 // id         (alphabetical)
+// sticky footer
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,600');
 
 $iport-gray: #7f7f7f;
 $iport-purple: #623FD6;
 $focus-gray: #F8F9FA;
+$footer-gray: #f3f3f3;
 
 nav {
   @extend .anchor-plain
@@ -23,6 +25,12 @@ nav {
     text-decoration: none;
     color: inherit;
   }
+}
+
+.border-left-purple {
+  border-width: 0 0 0 0.095rem;
+  border-style: solid;
+  border-color: $iport-purple;
 }
 
 .border-purple {
@@ -37,14 +45,12 @@ nav {
   border-color: $iport-purple;
 }
 
-.border-left-purple {
-  border-width: 0 0 0 0.095rem;
-  border-style: solid;
-  border-color: $iport-purple;
-}
-
 .font-weight-medium {
   font-weight: 400;
+}
+
+.home-subheader {
+  font-size: 1.35rem;
 }
 
 .ofl-fix { // fixes issue with li and p border overlapping floating images
@@ -88,11 +94,20 @@ nav {
     text-decoration: none;
     color: inherit;
   }
+  h6 {
+    font-weight: 300;
+  }
 }
 
 .product-selected {
   background-color: $focus-gray;
-  font-weight: 400;
+  h4 {
+    font-weight: 600;
+    font-size: 1.7rem;
+  }
+  h6 {
+    font-weight: 400;
+  }
 }
 
 .rounded-custom {
@@ -133,10 +148,34 @@ nav {
   @extend .rounded-top-custom
 }
 
+#footer-content {
+  height: 50px;
+  background-color: $footer-gray;
+  line-height: 50px;
+}
+
 #last-product-body, #last-product-header {
   @extend .rounded-bottom-custom
 }
 
 #products-list .card {
   border: 0;
+}
+
+// for sticky footer
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 109px; /* Margin bottom by footer height */
+}
+.footer {
+  font-weight: 300;
+  font-size: 0.85rem;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 109px; /* Set the fixed height of the footer here */
 }
