@@ -1,0 +1,100 @@
+<!-- Products page partial, for $.load into #content -->
+
+<!--
+  In order to allow the products-list structure to support
+  additional products without changing css or js, ensure:
+    - The first element in the list-group has id #first-product-header
+    - All collapsible product bodies except the last have class .product-body-mid
+    - The last product header has id #last-product-header
+    - The last product body has id #last-product-body
+-->
+<h2>Products</h2>
+<p>In pursuit of creating novel products, IntelliPort has directed research and development towards three products:</p>
+
+<div class="list-group pb-3 mt-4" id="products-list">
+  <div class="card"> <!-- for bootstrap-style accordion w/ data-parent, all must be wrapped in a card -->
+    <a class="product-header list-group-item collapsed" id="first-product-header" data-toggle="collapse" href="#dsm-collapse" aria-expanded="false" aria-controls="dsm-collapse">
+      <div class="d-flex">
+        <img src="/images/svg/dsm-calendar.svg" class="mr-3 mr-sm-4 float-left d-flex align-self-md-center align-self-start" width="82px"/>
+        <div class="d-flex d-sm-block align-self-md-center">
+          <h4 class="d-block">DSM <span class="d-block d-sm-inline product-title">Dynamic Schedule Module</span></h4>
+          <h6 class="d-none d-sm-block d-md-flex mb-1 text-muted">Optimized human resource allocation based on demand</h6>
+        </div>
+      </div>
+      <h6 class="mb-1 d-sm-none text-muted mt-2">Optimized human resource allocation based on demand</h6>
+    </a>
+    <div class="collapse" id="dsm-collapse" data-parent="#products-list">
+      <div class="product-body-mid list-group-item">
+        <div class="card-body p-1 p-sm-2 p-md-3">
+          <img src="/images/png/schedule.png" class="d-none d-md-block float-right img-fluid img-thumbnail ml-3 mb-3" width="300" height="200" />
+          <img src="/images/png/schedule.png" class="d-none d-sm-block d-md-none float-right img-fluid img-thumbnail mb-3 ml-3" width="210" height="140" />
+          <h4 class="card-title">Dynamic Schedule Module</h4>
+          <img src="/images/png/schedule.png" class="d-sm-none img-fluid img-thumbnail mb-3" width="300" height="200" />
+          <p>The DSM <span class="font-weight-medium">automates and optimizes staff scheduling</span> by minimizing cost while ensuring equity to all parties.</p>
+          <p>The DSM offers two tools:</p>
+          <p>A <span class="font-weight-medium">simulator</span> helps recruitment planners determine hiring needs by generating the number of required employees over a selected time interval (e.g. weeks, months, years).</p>
+          <p>A <span class="font-weight-medium">schedule generator</span> builds cost-efficient schedules based on forecasted demand. It remains flexible by allowing schedules to be updated as demand changes by employing a concept of 'on-call' to adapt to short-notice changes in ship schedules.</p>
+          <p>The DSM's unique design rotates employees across equipment and time-slots to ensure equal opportunity for success, which <span class="font-weight-medium">allows for productivity-based incentives.</span></p>
+          <p>Visit the <a class="prod-page-link" href="#dsm">DSM project page</a> for additional information.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <a class="product-header list-group-item collapsed" data-toggle="collapse" href="#rom-collapse" aria-expanded="false" aria-controls="rom-collapse">
+      <div class="d-flex">
+        <img src="/images/svg/rom-rtg.svg" class="mr-3 mr-sm-4 float-left d-flex align-self-md-center align-self-start" width="82px"/>
+        <div class="d-flex d-sm-block align-self-md-center">
+          <h4 class="d-block">ROM <span class="d-block d-sm-inline product-title">Relocation Optimization Module</span></h4>
+          <h6 class="d-none d-sm-block d-md-flex mb-1 text-muted">Minimizing unproductive container moves</h6>
+        </div>
+      </div>
+      <h6 class="mb-1 d-sm-none text-muted mt-2">Minimizing unproductive container moves</h6>
+    </a>
+    <div class="collapse" id="rom-collapse" data-parent="#products-list">
+      <div class="product-body-mid list-group-item">
+        <div class="card-body p-1 p-sm-2 p-md-3">
+          <img src="/images/png/rtg-container.png" class="d-none d-md-block float-right img-fluid img-thumbnail ml-3 mb-3" width="300" height="200" />
+          <img src="/images/png/rtg-container.png" class="d-none d-sm-block d-md-none float-right img-fluid img-thumbnail mb-3 ml-3" width="210" height="140" />
+          <h4 class="card-title">Relocation Optimization Module</h4>
+          <img src="/images/png/rtg-container.png" class="d-sm-none img-fluid img-thumbnail mb-3" width="300" height="200" />
+          <p>The ROM uses expected container retrieval order to maximize yard efficiency by minimizing the number of future relocations.</p>
+          <p>The ROM has two functions:</p>
+          <ol class="font-weight-medium">
+            <li><span class="">Determining where to relocate a blocking container within a block during the retrieval of a requested container</span></li>
+            <li><span class="">Determining where to stack a new container within a block</span></li>
+          </ol>
+          <p>At a high level, the module takes in the container ID of the container to be retrieved (<span class="font-weight-medium">1</span>) or the container to be stacked (<span class="font-weight-medium">2</span>) and <span class="font-weight-medium">outputs the optimized set of moves</span> that should be taken to complete this action.</p>
+          <p>For more details, see <a class="prod-page-link" href="#rom">here</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <a class="product-header list-group-item collapsed" id="last-product-header" data-toggle="collapse" href="#prtg-collapse" aria-expanded="false" aria-controls="prtg-collapse">
+      <div class="d-flex">
+        <img src="/images/svg/prtg-truck.svg" class="mr-3 mr-sm-4 float-left d-flex align-self-md-center align-self-start" width="82px"/>
+        <div class="d-flex d-sm-block align-self-md-center">
+          <h4 class="d-block">PRTG <span class="d-block d-sm-inline product-title">Predicted Retrieval Time Generator</span></h4>
+          <h6 class="d-none d-sm-block d-md-flex mb-1 text-muted">Predicting container retrieval time/date</h6>
+        </div>
+      </div>
+      <h6 class="mb-1 d-sm-none text-muted mt-2">Predicting container retrieval time/date</h6>
+    </a>
+    <div class="collapse last-product" id="prtg-collapse" data-parent="#products-list">
+      <div class="list-group-item" id="last-product-body">
+        <div class="card-body p-1 p-sm-2 p-md-3">
+          <img src="/images/png/truck.png" class="d-none d-md-block float-right img-fluid img-thumbnail ml-3 mb-3" width="300" height="200" />
+          <img src="/images/png/truck.png" class="d-none d-sm-block d-md-none float-right img-fluid img-thumbnail mb-3 ml-3" width="210" height="140" />
+          <h4 class="card-title">Predicted Retrieval Time Generator</h4>
+          <img src="/images/png/truck.png" class="d-sm-none img-fluid img-thumbnail mb-3" width="300" height="200" />
+          <p>The PRTG forecasts the arrivals of freight forwards and truckers servicing container terminals. It identifies patterns in the arrival/departure of containers and utilizes these patterns to predict when any given import container will be retrieved.</p>
+          <p>The PRTG generates a pick-up probability for each import container for future time windows. This information offers valuable insight that allows containers to be stacked in positions that will minimize future relocations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- .list-group, #products-list -->

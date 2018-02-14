@@ -1,72 +1,73 @@
-// Tried to make this a single page site for simplicity, using hashes
-// Appended '-content' so has didn't scroll to the content using the href
-// Jacob Brady
+// Jacob Brady; Feb 2018
+// KCUS Inc.
+
+var mainPageHashes = ['#home', '#products', '#contact'];
+var prodPageHashes = ['#dsm', '#rom'];
+var currentHash = '#home';
+var defaultHash = '#home';
 
 $(document).ready(function(){
+  currentHash = checkHash( $(location).attr('hash') );
+  displayContent(currentHash);
+  setHighlight(currentHash);
 
-  // Determine which content to display on page load by url hash
-  var hash = $(location).attr('hash');
-  displayContent(hash);
-
-  // "switch page" -- spa version
-  $('.nav-item').on('click', function() {
-    // if product page, skips nav-active check
-    var hash = $(location).attr('hash');
-    var productPage = false;
-    if (hash === '#dsm-page' || hash === '#rom-page') {
-      productPage = true;
-    }
-    // change nav-active highlight
-    var ref = $(this).attr('href');
-    if ($(this).hasClass('nav-active') && !productPage){ // already highlighted
-      return;
-    }
-    else {
-      $('.nav-item').removeClass('nav-active');
-      $(this).addClass('nav-active');
-
-      // switch content
-      $('#content').html($(''+ref+'-content').html());
-
-      if (ref === '#products') {
-        setupProjHandlers();
-      }
-    }
+  $(window).on('hashchange', function() {
+    var newHash = checkHash($(location).attr('hash'));
+    switchHighlight(newHash);
+    displayContent(newHash);
+    currentHash = newHash;
   });
 
 });
 
+// gives the pathname partial given a hash
+// ex: given '#contact' returns '_contact.html'
+function hashToPath(hash) {
+  return '/_' + hash.substring(1) + '.html';
+}
 
-// Determine which content to display on page load by url hash
-function displayContent(hash) {
-  // could be a bit more general in these for easier expansion... need more time
-  if (hash === ""){ // null is home
-    hash = '#home';
+// ensures hash is in mainPageHashes or prodPageHashes and defaults if not
+function checkHash(hash) {
+  var isValid = $.inArray(hash, mainPageHashes.concat(prodPageHashes)) != -1;
+  if (isValid) {
+    return hash;
   }
-  if (hash === '#home' || hash === '#products' || hash === '#contact') {
-    $('#content').html($(''+hash+'-content').html()); // load w/ correct content
-    $('.navbar-nav a[href="'+hash+'"]').addClass('nav-active'); // highlight current section
-
-    if(hash === '#products'){
-      setupProjHandlers(hash);
-    }
-  }
-  else if (hash === '#dsm-page') {
-    $('#content').load('_dsm.html');
-    $('.navbar-nav a[href="#products"]').addClass('nav-active');
-  }
-  else if (hash === '#rom-page') {
-    $('#content').load('_rom.html');
-    $('.navbar-nav a[href="#products"]').addClass('nav-active');
-  }
-  else { // something that doesn't exist, default to home ()
-    $('#content').html($('#home-content').html()); // load w/ correct content
-    $('.navbar-nav a[href="#home"]').addClass('nav-active'); // highlight current section
+  else {
+    window.location.hash = defaultHash;
+    return defaultHash;
   }
 }
 
+// Determine which content to display on page load by url hash
+function displayContent(hash) {
+  var path = hashToPath(hash);
+  $('#content').load(path, function() {
+    if (hash == '#products') {
+      setupProdHandlers();
+    }
+  });
+}
 
-function setupProjHandlers(){ // because they can't init while hidden
+// changes the menu highlight to match the given hash
+function switchHighlight(hash) {
+  var isProdPage = $.inArray(hash, prodPageHashes) != -1;
+  if (isProdPage) {
+    hash = '#products';
+  }
+  if (hash != currentHash) {
+    setHighlight(hash);
+  }
+}
+
+// highlights only navbar item corresponding to the given hash
+function setHighlight(hash) {
+  $('.nav-item').removeClass('nav-active');
+  $('a[href="' + hash + '"]').addClass('nav-active');
+}
+
+// product page needs event handlers to make the borders look nice w/
+// collapsing, and to load individual product pages
+function setupProdHandlers(){
   // when it starts showing, drop border radius
   $('.last-product').on('show.bs.collapse', function () {
     $('#last-product-header').addClass('rounded-0');
@@ -77,19 +78,15 @@ function setupProjHandlers(){ // because they can't init while hidden
     $('#last-product-header').removeClass('rounded-0');
   });
 
-  $('.product-header').on('click', function(){
-    $('.product-header').not($(this)).removeClass('product-selected');
+  // s
+  $('.product-header').on('click', function() {
+    $('.product-header').not( $(this) ).removeClass('product-selected');
     $(this).toggleClass('product-selected');
   });
 
-  $('#dsm-link').on('click', function() {
-    $("#content").load( "_dsm.html");
+  $('.prod-page-link').on('click', function() {
+    var path = hashToPath( $(this).attr('href') );
+    $('#content').load(path);
     window.scrollTo(0,0);
   });
-
-  $('#rom-link').on('click', function() {
-    $('#content').load('_rom.html');
-    window.scrollTo(0,0);
-  });
-
 }

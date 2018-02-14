@@ -16,6 +16,21 @@ $iport-purple: #623FD6;
 $focus-gray: #F7F7F7;
 $footer-gray: #f3f3f3;
 
+$footer-bar-height: 50px;
+$ship-height: 59px;
+
+
+// for sticky footer
+body {
+  margin-bottom: $footer-bar-height + $ship-height;
+}
+
+// for sticky footer
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 nav {
   @extend .anchor-plain
 }
@@ -47,6 +62,16 @@ nav {
 
 .font-weight-medium {
   font-weight: 400;
+}
+
+.footer {
+  font-weight: 300;
+  font-size: 0.85rem;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: $footer-bar-height + $ship-height;
 }
 
 .list-group-item {
@@ -99,31 +124,11 @@ nav {
     font-weight: 300;
   }
   padding: 1.25rem;
-  &::after { // prevents changing font-weight from changing container width
-    h4 {
-      content: "DSM";
-      font-weight: 600;
-      font-size: 1.8rem
-    }
-    h6 {
-
-      font-weight: 400;
-    }
-    display: block;
-    height: 0;
-    visibility: hidden;
-  }
 }
 
 .product-selected {
   background-color: $focus-gray;
-  h4 {
-    font-weight: 600;
-    font-size: 1.8rem;
-  }
-  h6 {
-    font-weight: 400;
-  }
+  //border-color: $iport-purple;
 }
 
 .product-title {
@@ -171,9 +176,9 @@ nav {
 }
 
 #footer-content {
-  height: 50px;
+  height: $footer-bar-height;
   background-color: $footer-gray;
-  line-height: 50px;
+  line-height: $footer-bar-height;
 }
 
 #home-box {
@@ -188,20 +193,6 @@ nav {
   border: 0;
 }
 
-// for sticky footer
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  margin-bottom: 109px; /* Margin bottom by footer height */
-}
-.footer {
-  font-weight: 300;
-  font-size: 0.85rem;
-  position: absolute;
-  text-align: center;
-  bottom: 0;
-  width: 100%;
-  height: 109px; /* Set the fixed height of the footer here */
+#ship-svg {
+  height: $ship-height;
 }
