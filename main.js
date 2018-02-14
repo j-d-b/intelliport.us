@@ -50,9 +50,6 @@ function displayContent(hash) {
     if(hash === '#products'){
       setupProjHandlers(hash);
     }
-    // else if (hash === '#contact'){
-    //   $('#content').removeClass('border-left-purple')
-    // }
   }
   else if (hash === '#dsm-page') {
     $('#content').load('_dsm.html');

@@ -50,14 +50,24 @@
     text-decoration: none;
     color: inherit; }
   .product-header:hover {
-    background-color: #F8F9FA; }
+    background-color: #F7F7F7; }
   .product-header:active {
     background-color: #ededed; }
   .product-header h6 {
     font-weight: 300; }
+  .product-header::after {
+    display: block;
+    height: 0;
+    visibility: hidden; }
+    .product-header::after h4 {
+      content: "DSM";
+      font-weight: 600;
+      font-size: 1.8rem; }
+    .product-header::after h6 {
+      font-weight: 400; }
 
 .product-selected {
-  background-color: #F8F9FA; }
+  background-color: #F7F7F7; }
   .product-selected h4 {
     font-weight: 600;
     font-size: 1.8rem; }

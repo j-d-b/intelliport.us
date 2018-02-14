@@ -13,7 +13,7 @@
 
 $iport-gray: #7f7f7f;
 $iport-purple: #623FD6;
-$focus-gray: #F8F9FA;
+$focus-gray: #F7F7F7;
 $footer-gray: #f3f3f3;
 
 nav {
@@ -57,6 +57,10 @@ nav {
   overflow: hidden;
 }
 
+// .outline-left-purple{
+//   box-shadow: -0.6rem 0 $iport-purple;
+// }
+
 .navbar-nav {
   .nav-active {
     color: $iport-purple;
@@ -95,6 +99,20 @@ nav {
     font-weight: 300;
   }
   padding: 1.25rem;
+  &::after { // prevents changing font-weight from changing container width
+    h4 {
+      content: "DSM";
+      font-weight: 600;
+      font-size: 1.8rem
+    }
+    h6 {
+
+      font-weight: 400;
+    }
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
 }
 
 .product-selected {
