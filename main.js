@@ -68,7 +68,7 @@ function setHighlight(hash) {
 // collapsing, and to load individual product pages
 function setupProdHandlers(){
   // when it starts showing, drop border radius
-  $('.last-product').on('show.bs.collapse', function () {
+  $('.last-product').on('show.bs.collapse', function() {
     $('#last-product-header').addClass('rounded-0');
   });
 
