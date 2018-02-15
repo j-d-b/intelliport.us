@@ -77,6 +77,14 @@ function setupProdHandlers(){
     $('#last-product-header').removeClass('rounded-0');
   });
 
+  $('#products-list .collapse').on('shown.bs.collapse', function() {
+    var collapseHeader = $('a[href="#' + $(this).attr('id') + '"]');
+    if(collapseHeader)
+    $('html, body').animate( {
+      scrollTop: $(collapseHeader).offset().top - 5 // a bit of spacing for aesthetics
+    }, 200);
+  });
+
   // gives the product-selected class to the clicked product header
   $('.product-header').on('click', function() {
     var collapseDiv = $(this).attr('href');
