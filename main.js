@@ -12,7 +12,7 @@ $(document).ready(function(){
   setHighlight(currentHash);
 
   $(window).on('hashchange', function() {
-    var newHash = checkHash($(location).attr('hash'));
+    var newHash = checkHash( $(location).attr('hash') );
     switchHighlight(newHash);
     displayContent(newHash);
     currentHash = newHash;
