@@ -1,16 +1,16 @@
-// Tried to write this in Boostrap-inspired atomic css
+// Tried to write this in Boostrap-inspired largely atomic css
 // Jacob Brady
 
 // Doc Order
 // --------------------------
-// Sass stuff (random)
+// @, sass stuff (random)
 // elements   (alphabetical)
-// classes    (alphabetical)
 // id         (alphabetical)
-// sticky footer
+// classes    (alphabetical)
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,600');
 
+$bs-md-breakpoint: 768px;
 $iport-gray: #7f7f7f;
 $iport-purple: #623FD6;
 $focus-gray: #F7F7F7;
@@ -19,6 +19,22 @@ $footer-gray: #f3f3f3;
 $footer-bar-height: 50px;
 $ship-height: 59px;
 
+@media (min-width: $bs-md-breakpoint) {
+  .border-md-left-purple {
+    border-width: 0 0 0 0.095rem;
+    border-style: solid;
+    border-color: $iport-purple;
+  }
+  .border-md-none {
+    border-style: none !important;
+  }
+  .mr-md-45 {
+    margin-right: 2.25rem !important;
+  }
+  .ml-md-45 {
+    margin-left: 2.25rem !important;
+  }
+}
 
 // for sticky footer
 body {
@@ -33,6 +49,32 @@ html {
 
 nav {
   @extend .anchor-plain
+}
+
+#first-product-header {
+  @extend .rounded-top-custom
+}
+
+#footer-content {
+  height: $footer-bar-height;
+  background-color: $footer-gray;
+  line-height: $footer-bar-height;
+}
+
+#home-box {
+  font-size: 1.05rem;
+}
+
+#last-product-body, #last-product-header {
+  @extend .rounded-bottom-custom
+}
+
+#products-list .card {
+  border: 0;
+}
+
+#ship-svg {
+  height: $ship-height;
 }
 
 .anchor-plain {
@@ -66,12 +108,16 @@ nav {
 
 .footer {
   font-weight: 300;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   position: absolute;
   text-align: center;
   bottom: 0;
   width: 100%;
   height: $footer-bar-height + $ship-height;
+}
+
+.footer-text {
+  width: 115px; // to center text of varying length on either side of IP svg
 }
 
 .list-group-item {
@@ -81,10 +127,6 @@ nav {
 .ofl-fix { // fixes issue with li and p border overlapping floating images
   overflow: hidden;
 }
-
-// .outline-left-purple{
-//   box-shadow: -0.6rem 0 $iport-purple;
-// }
 
 .navbar-nav {
   .nav-active {
@@ -169,30 +211,4 @@ nav {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-#first-product-header {
-  @extend .rounded-top-custom
-}
-
-#footer-content {
-  height: $footer-bar-height;
-  background-color: $footer-gray;
-  line-height: $footer-bar-height;
-}
-
-#home-box {
-  font-size: 1.05rem;
-}
-
-#last-product-body, #last-product-header {
-  @extend .rounded-bottom-custom
-}
-
-#products-list .card {
-  border: 0;
-}
-
-#ship-svg {
-  height: $ship-height;
 }
