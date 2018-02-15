@@ -4,7 +4,7 @@
 var mainPageHashes = ['#home', '#products', '#contact'];
 var prodPageHashes = ['#dsm', '#rom'];
 var currentHash = '#home';
-var defaultHash = '#home';
+var defaultHash = '#home'; // could link to page not found, etc.
 
 $(document).ready(function(){
   currentHash = checkHash( $(location).attr('hash') );
@@ -17,7 +17,6 @@ $(document).ready(function(){
     displayContent(newHash);
     currentHash = newHash;
   });
-
 });
 
 // gives the pathname partial given a hash
@@ -38,7 +37,7 @@ function checkHash(hash) {
   }
 }
 
-// Determine which content to display on page load by url hash
+// determine which content to display on page load by url hash
 function displayContent(hash) {
   var path = hashToPath(hash);
   $('#content').load(path, function() {
@@ -78,10 +77,13 @@ function setupProdHandlers(){
     $('#last-product-header').removeClass('rounded-0');
   });
 
-  // s
+  // gives the product-selected class to the clicked product header
   $('.product-header').on('click', function() {
+    var collapseDiv = $(this).attr('href');
     $('.product-header').not( $(this) ).removeClass('product-selected');
-    $(this).toggleClass('product-selected');
+    if (!$(collapseDiv).hasClass('collapsing')){
+      $(this).toggleClass('product-selected');
+    }
   });
 
   $('.prod-page-link').on('click', function() {
