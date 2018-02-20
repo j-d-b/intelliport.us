@@ -1,8 +1,7 @@
 // Jacob Brady; Feb 2018
 // KCUS Inc.
 
-var mainPageHashes = ['#home', '#products', '#contact'];
-var prodPageHashes = ['#dsm', '#rom'];
+var pageHashes = ['#home', '#products', '#contact'];
 var currentHash = '#home';
 var defaultHash = '#home'; // could link to page not found, etc.
 
@@ -25,9 +24,9 @@ function hashToPath(hash) {
   return '/_' + hash.substring(1) + '.html';
 }
 
-// ensures hash is in mainPageHashes or prodPageHashes and defaults if not
+// ensures hash is in pagesHashes
 function checkHash(hash) {
-  var isValid = $.inArray(hash, mainPageHashes.concat(prodPageHashes)) != -1;
+  var isValid = $.inArray(hash, pageHashes) != -1;
   if (isValid) {
     return hash;
   }
@@ -49,10 +48,6 @@ function displayContent(hash) {
 
 // changes the menu highlight to match the given hash
 function switchHighlight(hash) {
-  var isProdPage = $.inArray(hash, prodPageHashes) != -1;
-  if (isProdPage) {
-    hash = '#products';
-  }
   if (hash != currentHash) {
     setHighlight(hash);
   }
@@ -84,11 +79,5 @@ function setupProdHandlers(){
     if (!$(collapseDiv).hasClass('collapsing')){
       $(this).toggleClass('product-selected');
     }
-  });
-
-  $('.prod-page-link').on('click', function() {
-    var path = hashToPath( $(this).attr('href') );
-    $('#content').load(path);
-    window.scrollTo(0,0);
   });
 }
