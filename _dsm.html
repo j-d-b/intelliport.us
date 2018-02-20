@@ -35,7 +35,7 @@
   <div class="mb-4">
     <h3 class="font-weight-bold">Simulator</h3>
     <p>The simulator is a planning tool that <span class="font-weight-medium">determines the total number of employees that should be on staff.</span> It uses expected demand to minimize the total required staff.</p>
-    <p>The simulator was tested in two container terminals and demonstrated a significant decrease in the required workforce for both.</p>
+    <p>The simulator was tested in several container terminals and demonstrated a significant decrease in the required workforce for both.</p>
   </div>
 
   <div class="mb-4">
@@ -66,20 +66,12 @@
   <div class="mb-4">
     <h3 class="font-weight-bold">On-Call</h3>
     <p>There is an average number of employees needed each day, but this number fluctuates from day to day. This is the basis for the <span class="font-weight-medium">on-call system</span>.</p>
-    <div class="border-purple-light p-3 bg-light rounded-custom mb-3">
-      <p class="font-weight-medium">An example:</p>
-      <ul>
-        <li>A weekly plan estimates that ten employees will be needed on Tuesday and seven employees will be needed on Wednesday.</li>
-        <li>On Monday, the port is notified that a ship originally scheduled to arrive on Tuesday will not arrive until Wednesday.</li>
-        <li>Without an on-call system, three employees who are paid to be on-site on Tuesday, but will be idle. The next day, the seven scheduled employees will be unable to keep up with demand.</li>
-        <li>With an on-call system, on both days seven employees will be scheduled to be on-site and three employees will be scheduled for on-call. On Tuesday, the on-call employees will not be asked to attend work and there will be no idle employees. On Wednesday, the on-call employees will be asked to attend work and thus the employees will be able to keep up with demand.</li>
-      </ul>
-    </div>
-    <p>Thus, <span class="font-weight-medium">DSM</span> minimizes cost by maximizing on-site staff utilization.</p>
+    <p>The percentage margin of on-call employees will be a user-input value that will be determined based on consideration of typical operations and demand trends.</p>
+    <p>Using this, <span class="font-weight-medium">DSM</span> minimizes cost by maximizing on-site staff utilization.</p>
   </div>
 
   <div class="mb-4">
-    <h3 class="font-weight-bold">Scheduling Constraints</h3>
+    <h3 class="font-weight-bold">Scheduling Features</h3>
     <p><span class="font-weight-medium">DSM</span> considers the following:</p>
     <ul>
       <li><span class="font-weight-medium">Skill Level:</span> The system allows the entry of a “skill level” (0-10 scale) based on productivity and ability. This is used to ensure that each shift has staff with a mix of skill levels, which facilitates consistent performance across all shifts.</li>
@@ -114,7 +106,7 @@
     <h3 class="font-weight-bold">Inputs</h3>
     <p><span class="font-weight-medium">DSM</span> accepts inputs related to:</p>
     <div class="row m-2">
-      <div class="col-md-6">
+      <div class="col-md-5">
         <span class="font-weight-medium">Labor laws and company regulations</span>
         <ul>
           <li>Daily working hours</li>
@@ -125,9 +117,12 @@
           <li>Weekly rest hours</li>
           <li>Monthly working hours</li>
           <li>Union regulations</li>
+          <li>Overtime cost</li>
+          <li>Accommodation cost</li>
+          <li>Transportation cost</li>
         </ul>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-3">
         <span class="font-weight-medium">Employees</span>
         <ul>
           <li>Name</li>
@@ -136,6 +131,12 @@
           <li>Qualifications</li>
           <li>Skill level</li>
         </ul>
+      </div>
+      <div class="col-md-2">
+        <span class="font-weight-medium">Total Workload per Position</span>
+      </div>
+      <div class="col-md-2">
+        <span class="font-weight-medium">Percentage Margin of On-Call Employees</span>
       </div>
     </div>
   </div>
@@ -146,7 +147,8 @@
   	<ul>
   		<li>The total number of staff required over a selected time interval (e.g. weeks, months, years).</li>
   		<li>Cost-efficient schedules based on forecasted demand that can be updated at any time as demand changes.</li>
-  	</ul>
+      <li><span class="font-weight-medium">Key Performance Indicators (KPIs)</span> to allow users to evaluate the efficiency of the generated schedules. The KPIs will be values such as overtime utilization and paid hours utilization.</li>
+    </ul>
   </div>
 
   <div class="mb-4">
