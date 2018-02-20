@@ -2,7 +2,7 @@
 
 First-edition website for Intelliport, Inc. — request: "professional but brief website"
 
-Site is now live at [intelliport.us](http://intelliport.us).
+Site is now live at [intelliport.us](http://intelliport.us)
 
 ### Web Tech:
 * [Bootstrap 4](https://getbootstrap.com/) for layout
@@ -12,4 +12,4 @@ Site is now live at [intelliport.us](http://intelliport.us).
 ### About IntelliPort, Inc.
 > IntelliPort, Inc. is a software development company that uses technology and analytics to boost productivity and efficiency. We focus on **intelligent optimization in the container terminal industry.**
 
-IntelliPort was formed in 2012, and is based in **Cambridge, MA**
+IntelliPort was formed in 2012, and is based in **Cambridge, MA**.
