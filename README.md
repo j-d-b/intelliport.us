@@ -1,4 +1,4 @@
-# IntelliPort, Inc.<img src="http://ec2-54-197-199-71.compute-1.amazonaws.com/images/svg/ship-purple.svg" width="120px">
+# IntelliPort, Inc. &nbsp; <img src="http://ec2-54-197-199-71.compute-1.amazonaws.com/images/svg/ship-purple.svg" width="120px">
 
 First-edition website for Intelliport, Inc. — request: "professional but brief website"
 
