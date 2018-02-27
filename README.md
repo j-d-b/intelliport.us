@@ -6,7 +6,7 @@ Site is now live at [intelliport.us](http://intelliport.us)
 
 ### Design:
 * [Bootstrap 4](https://getbootstrap.com/) for layout
-* [Sass](http://sass-lang.com/) w/ generally Bootstrap-inspired atomic CSS for consistency
+* [Sass](http://sass-lang.com/) w/ generally Bootstrap-inspired atomic CSS for clarity and consistency
 * Simple three-page SPA powered by [jQuery](http://jquery.com/) $.load
 
 ### About IntelliPort, Inc.
