@@ -14,13 +14,16 @@ html {
   position: relative;
   min-height: 100%; }
 
+#content {
+  font-size: 15px; }
+
 #footer-content {
   height: 50px;
   background-color: #f3f3f3;
   line-height: 50px; }
 
 #home-box {
-  font-size: 1.05rem; }
+  font-size: 1rem; }
 
 #products-list .card {
   border: 0; }
