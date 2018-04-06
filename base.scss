@@ -157,9 +157,6 @@ nav {
   &:hover {
     background-color: $focus-gray;
   }
-  &:active {
-    background-color: #ededed; // darken on click instant
-  }
   h6 {
     font-weight: 300;
   }
