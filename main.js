@@ -1,22 +1,37 @@
 // Jacob Brady; Feb 2018
 // KCUS Inc.
 
-var pageHashes = ['#home', '#products', '#contact'];
-var currentHash = '#home';
-var defaultHash = '#home'; // could link to page not found, etc.
-
 $(document).ready(function(){
-  currentHash = checkHash( $(location).attr('hash') );
-  displayContent(currentHash);
-  setHighlight(currentHash);
+  var pageHashes = ['#home', '#products', '#contact'];
+  var defaultHash = '#home'; // could link to page not found, etc.
+
+  showPage(window.location.hash, pageHashes, defaultHash);
+
+  // init ship movement variables, for use in event handlers
+  var shipPosition = 0;
+  var ship = document.getElementById('ship-svg');
 
   $(window).on('hashchange', function() {
-    var newHash = checkHash( $(location).attr('hash') );
-    switchHighlight(newHash);
-    displayContent(newHash);
-    currentHash = newHash;
+    showPage(window.location.hash, pageHashes, defaultHash);
+    // reset ship position
+    ship.style.transform = 'translateX(0)';
+    shipPosition = 0;
+  });
+
+  // easter egg: set the ship in motion on click!
+  $('#ship-svg').click(function() {
+    shipPosition -= 250;
+    ship.style.transform = 'translateX(' + shipPosition + 'px)';
   });
 });
+
+
+// 'changes the page' to reflect the content of the given hash, spa style
+function showPage(hash, validHashes, defaultHash) {
+  var validatedHash = checkHash(hash, validHashes, defaultHash);
+  setHighlight(validatedHash);
+  displayContent(validatedHash);
+}
 
 // gives the pathname partial given a hash
 // ex: given '#contact' returns '_contact.html'
@@ -24,13 +39,13 @@ function hashToPath(hash) {
   return '/_' + hash.substring(1) + '.html';
 }
 
-// ensures hash is in pagesHashes
-function checkHash(hash) {
-  var isValid = $.inArray(hash, pageHashes) != -1;
+// ensures hash is in validHashes
+function checkHash(hash, validHashes, defaultHash) {
+  var isValid = $.inArray(hash, validHashes) != -1;
   if (isValid) {
     return hash;
   }
-  else {
+  else { // if it's not in page
     window.location.hash = defaultHash;
     return defaultHash;
   }
@@ -46,13 +61,6 @@ function displayContent(hash) {
   });
 }
 
-// changes the menu highlight to match the given hash
-function switchHighlight(hash) {
-  if (hash != currentHash) {
-    setHighlight(hash);
-  }
-}
-
 // highlights only navbar item corresponding to the given hash
 function setHighlight(hash) {
   $('.nav-item').removeClass('nav-active');
@@ -62,7 +70,7 @@ function setHighlight(hash) {
 // product page needs event handlers to make the borders look nice w/
 // collapsing, and to load individual product pages
 function setupProdHandlers(){
-  // when it starts showing, drop border radius
+  // when last product collapse starts showing, drop border radius
   $('.last-product').on('show.bs.collapse', function() {
     $('#last-product-header').addClass('rounded-0');
   });

@@ -29,7 +29,10 @@ html {
   border: 0; }
 
 #ship-svg {
-  height: 59px; }
+  height: 59px;
+  transition: all 1.4s cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+  #ship-svg:hover {
+    cursor: pointer; }
 
 .anchor-plain a:visited, nav a:visited, .anchor-plain a:hover, nav a:hover, .anchor-plain a:link, nav a:link {
   text-decoration: none;
@@ -95,8 +98,6 @@ html {
     color: inherit; }
   .product-header:hover {
     background-color: #F7F7F7; }
-  .product-header:active {
-    background-color: #ededed; }
   .product-header h6 {
     font-weight: 300; }
 

@@ -10,6 +10,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,600');
 
+$bs-sm-breakpoint: 576px;
 $bs-md-breakpoint: 768px;
 $iport-gray: #7f7f7f;
 $iport-purple: #623FD6;
@@ -72,7 +73,13 @@ nav {
 }
 
 #ship-svg {
+  &:hover {
+    cursor: pointer;
+  }
+
   height: $ship-height;
+  transition: all 1.4s cubic-bezier(0.455, 0.03, 0.515, 0.955); // quad in out
+
 }
 
 .anchor-plain {
@@ -156,9 +163,6 @@ nav {
   }
   &:hover {
     background-color: $focus-gray;
-  }
-  &:active {
-    background-color: #ededed; // darken on click instant
   }
   h6 {
     font-weight: 300;
