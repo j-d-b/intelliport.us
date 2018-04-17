@@ -20,7 +20,7 @@ $(document).ready(function(){
 
   // easter egg: set the ship in motion on click!
   $('#ship-svg').click(function() {
-    shipPosition -= 250;
+    shipPosition -= 400;
     ship.style.transform = 'translateX(' + shipPosition + 'px)';
   });
 });

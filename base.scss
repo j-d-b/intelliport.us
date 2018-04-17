@@ -78,8 +78,7 @@ nav {
   }
 
   height: $ship-height;
-  transition: all 1.4s cubic-bezier(0.455, 0.03, 0.515, 0.955); // quad in out
-
+  transition: all 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); // quad out
 }
 
 .anchor-plain {
