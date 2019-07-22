@@ -55,7 +55,7 @@ function checkHash(hash, validHashes, defaultHash) {
 function displayContent(hash) {
   var path = hashToPath(hash);
   $('#content').load(path, function() {
-    if (hash == '#products') {
+    if (hash === '#products') {
       setupProdHandlers();
     }
   });
@@ -83,7 +83,7 @@ function setupProdHandlers(){
   // gives the product-selected class to the clicked product header
   $('.product-header').on('click', function() {
     var collapseDiv = $(this).attr('href');
-    $('.product-header').not( $(this) ).removeClass('product-selected');
+    $('.product-header').not($(this)).removeClass('product-selected');
     if (!$(collapseDiv).hasClass('collapsing')){
       $(this).toggleClass('product-selected');
     }
