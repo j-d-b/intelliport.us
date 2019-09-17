@@ -67,6 +67,11 @@ function setHighlight(hash) {
   $('a[href="' + hash + '"]').addClass('nav-active');
 }
 
+// returns true if the top of the element is visible in the current window
+function isInView(element) {
+  return $(element).offset().top >= $(window).scrollTop();
+}
+
 // product page needs event handlers to make the borders look nice w/
 // collapsing, and to load individual product pages
 function setupProdHandlers(){
@@ -78,6 +83,16 @@ function setupProdHandlers(){
   // when it finishes hiding, give back inherited border radius
   $('.last-product').on('hidden.bs.collapse', function() {
     $('#last-product-header').removeClass('rounded-0');
+  });
+
+  $('#products-list .collapse').on('shown.bs.collapse', function() {
+    var collapseHeader = $('a[href="#' + $(this).attr('id') + '"]');
+    if(!isInView(collapseHeader)) {
+      console.log('in view');
+      $('html, body').animate( {
+        scrollTop: $(collapseHeader).offset().top
+      }, 200);
+    }
   });
 
   // gives the product-selected class to the clicked product header
